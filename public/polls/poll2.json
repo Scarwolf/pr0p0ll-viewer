@@ -1,0 +1,1243 @@
+{
+  "info": {
+    "pollid": 240,
+    "title": "PC Konsum",
+    "description": "Es soll erfasst werden, was das Pr0 so benutzt, wieviel zeit verbracht wird, wie gut sie sich auskennen",
+    "author": "Ceeser",
+    "duration": 604800,
+    "endedOn": 1512064718,
+    "resultFile": "https://pr0p0ll.com/results/results_poll240_d357fa8e246da14498c06d6eb485bd67.zip",
+    "categoryID": 4,
+    "categoryTitle": "Internet, Telefonie, Gaming, Film und TV"
+  },
+  "q1": {
+    "id": 1132,
+    "title": "Was machst du?",
+    "description": "Was machst du haupts&auml;chlich am PC (Privat)",
+    "answertype": "single",
+    "index": 0,
+    "a1": {
+      "id": 7032,
+      "title": "Surfen (Social Networks, Pr0, community seiten)",
+      "index": 0,
+      "result": {
+        "total": 114,
+        "gender": {
+          "m": 107,
+          "w": 7
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 54,
+          "24-29": 43,
+          "30-38": 15,
+          "39-48": 1,
+          "49-55": 1,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 111,
+          "at": 1,
+          "ch": 2,
+          "other": 0
+        }
+      }
+    },
+    "a2": {
+      "id": 7036,
+      "title": "Videos (Youtube, Netflix, ..)",
+      "index": 0,
+      "result": {
+        "total": 80,
+        "gender": {
+          "m": 74,
+          "w": 6
+        },
+        "age": {
+          "&lt;18": 2,
+          "18-23": 53,
+          "24-29": 23,
+          "30-38": 2,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 74,
+          "at": 4,
+          "ch": 1,
+          "other": 1
+        }
+      }
+    },
+    "a3": {
+      "id": 7037,
+      "title": "Browsergames",
+      "index": 0,
+      "result": {
+        "total": 2,
+        "gender": {
+          "m": 2,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 0,
+          "24-29": 1,
+          "30-38": 0,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 2,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a4": {
+      "id": 7039,
+      "title": "Zocken",
+      "index": 0,
+      "result": {
+        "total": 184,
+        "gender": {
+          "m": 173,
+          "w": 11
+        },
+        "age": {
+          "&lt;18": 7,
+          "18-23": 96,
+          "24-29": 66,
+          "30-38": 14,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 168,
+          "at": 10,
+          "ch": 4,
+          "other": 2
+        }
+      }
+    },
+    "a5": {
+      "id": 7043,
+      "title": "Pr0grammieren (Hobby)",
+      "index": 0,
+      "result": {
+        "total": 24,
+        "gender": {
+          "m": 24,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 3,
+          "18-23": 12,
+          "24-29": 8,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 22,
+          "at": 1,
+          "ch": 0,
+          "other": 1
+        }
+      }
+    }
+  },
+  "q2": {
+    "id": 1134,
+    "title": "Wie lange?",
+    "description": "Wie viele stunden verbringst du durchschnittlich t&auml;glich vorm PC",
+    "answertype": "single",
+    "index": 0,
+    "a1": {
+      "id": 7005,
+      "title": "&lt; 1h",
+      "index": 0,
+      "result": {
+        "total": 9,
+        "gender": {
+          "m": 9,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 6,
+          "24-29": 1,
+          "30-38": 1,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 8,
+          "at": 0,
+          "ch": 0,
+          "other": 1
+        }
+      }
+    },
+    "a2": {
+      "id": 7006,
+      "title": "1h",
+      "index": 0,
+      "result": {
+        "total": 10,
+        "gender": {
+          "m": 10,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 6,
+          "24-29": 2,
+          "30-38": 2,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 10,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a3": {
+      "id": 7007,
+      "title": "2h",
+      "index": 0,
+      "result": {
+        "total": 41,
+        "gender": {
+          "m": 40,
+          "w": 1
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 20,
+          "24-29": 17,
+          "30-38": 2,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 36,
+          "at": 3,
+          "ch": 2,
+          "other": 0
+        }
+      }
+    },
+    "a4": {
+      "id": 7008,
+      "title": "3h",
+      "index": 0,
+      "result": {
+        "total": 49,
+        "gender": {
+          "m": 46,
+          "w": 3
+        },
+        "age": {
+          "&lt;18": 4,
+          "18-23": 30,
+          "24-29": 10,
+          "30-38": 5,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 45,
+          "at": 2,
+          "ch": 2,
+          "other": 0
+        }
+      }
+    },
+    "a5": {
+      "id": 7009,
+      "title": "4h",
+      "index": 0,
+      "result": {
+        "total": 72,
+        "gender": {
+          "m": 68,
+          "w": 4
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 41,
+          "24-29": 28,
+          "30-38": 2,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 68,
+          "at": 3,
+          "ch": 0,
+          "other": 1
+        }
+      }
+    },
+    "a6": {
+      "id": 7010,
+      "title": "5h",
+      "index": 0,
+      "result": {
+        "total": 56,
+        "gender": {
+          "m": 52,
+          "w": 4
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 30,
+          "24-29": 19,
+          "30-38": 5,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 52,
+          "at": 3,
+          "ch": 1,
+          "other": 0
+        }
+      }
+    },
+    "a7": {
+      "id": 7011,
+      "title": "6h",
+      "index": 0,
+      "result": {
+        "total": 48,
+        "gender": {
+          "m": 44,
+          "w": 4
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 27,
+          "24-29": 16,
+          "30-38": 3,
+          "39-48": 0,
+          "49-55": 1,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 43,
+          "at": 4,
+          "ch": 0,
+          "other": 1
+        }
+      }
+    },
+    "a8": {
+      "id": 7012,
+      "title": "7h",
+      "index": 0,
+      "result": {
+        "total": 18,
+        "gender": {
+          "m": 17,
+          "w": 1
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 15,
+          "24-29": 3,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 18,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a9": {
+      "id": 7013,
+      "title": "8h",
+      "index": 0,
+      "result": {
+        "total": 34,
+        "gender": {
+          "m": 33,
+          "w": 1
+        },
+        "age": {
+          "&lt;18": 2,
+          "18-23": 16,
+          "24-29": 12,
+          "30-38": 4,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 33,
+          "at": 1,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a10": {
+      "id": 7014,
+      "title": "9h",
+      "index": 0,
+      "result": {
+        "total": 8,
+        "gender": {
+          "m": 7,
+          "w": 1
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 4,
+          "24-29": 3,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 8,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a11": {
+      "id": 7015,
+      "title": "10h",
+      "index": 0,
+      "result": {
+        "total": 21,
+        "gender": {
+          "m": 18,
+          "w": 3
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 9,
+          "24-29": 9,
+          "30-38": 3,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 19,
+          "at": 0,
+          "ch": 1,
+          "other": 1
+        }
+      }
+    },
+    "a12": {
+      "id": 7016,
+      "title": "11h",
+      "index": 0,
+      "result": {
+        "total": 2,
+        "gender": {
+          "m": 2,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 1,
+          "24-29": 1,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 2,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a13": {
+      "id": 7017,
+      "title": "12h",
+      "index": 0,
+      "result": {
+        "total": 8,
+        "gender": {
+          "m": 8,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 4,
+          "24-29": 3,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 8,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a14": {
+      "id": 7018,
+      "title": "&gt; 12h",
+      "index": 0,
+      "result": {
+        "total": 35,
+        "gender": {
+          "m": 33,
+          "w": 2
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 10,
+          "24-29": 20,
+          "30-38": 4,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 32,
+          "at": 1,
+          "ch": 2,
+          "other": 0
+        }
+      }
+    }
+  },
+  "q3": {
+    "id": 1151,
+    "title": "Seit wann?",
+    "description": "Vor wievielen Jahren hast du angefangen deine Zeit vorm PC zu verbringen (nicht beruflich)",
+    "answertype": "single",
+    "index": 0,
+    "a1": {
+      "id": 7061,
+      "title": "&lt; 1 Jahr",
+      "index": 0,
+      "result": {
+        "total": 0,
+        "gender": {
+          "m": 0,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 0,
+          "24-29": 0,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 0,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a2": {
+      "id": 7062,
+      "title": "1 Jahr",
+      "index": 0,
+      "result": {
+        "total": 0,
+        "gender": {
+          "m": 0,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 0,
+          "24-29": 0,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 0,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a3": {
+      "id": 7063,
+      "title": "2 Jahre",
+      "index": 0,
+      "result": {
+        "total": 2,
+        "gender": {
+          "m": 2,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 1,
+          "24-29": 1,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 2,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a4": {
+      "id": 7065,
+      "title": "3 Jahre",
+      "index": 0,
+      "result": {
+        "total": 8,
+        "gender": {
+          "m": 8,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 7,
+          "24-29": 1,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 8,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a5": {
+      "id": 7067,
+      "title": "4 - 5 Jahre",
+      "index": 0,
+      "result": {
+        "total": 39,
+        "gender": {
+          "m": 33,
+          "w": 6
+        },
+        "age": {
+          "&lt;18": 9,
+          "18-23": 28,
+          "24-29": 2,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 34,
+          "at": 4,
+          "ch": 1,
+          "other": 0
+        }
+      }
+    },
+    "a6": {
+      "id": 7068,
+      "title": "6 - 7 Jahre",
+      "index": 0,
+      "result": {
+        "total": 75,
+        "gender": {
+          "m": 74,
+          "w": 1
+        },
+        "age": {
+          "&lt;18": 2,
+          "18-23": 66,
+          "24-29": 7,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 70,
+          "at": 2,
+          "ch": 3,
+          "other": 0
+        }
+      }
+    },
+    "a7": {
+      "id": 7069,
+      "title": "8 - 9 Jahre",
+      "index": 0,
+      "result": {
+        "total": 64,
+        "gender": {
+          "m": 58,
+          "w": 6
+        },
+        "age": {
+          "&lt;18": 1,
+          "18-23": 45,
+          "24-29": 17,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 59,
+          "at": 3,
+          "ch": 1,
+          "other": 1
+        }
+      }
+    },
+    "a8": {
+      "id": 7077,
+      "title": "10 - 12 Jahre",
+      "index": 0,
+      "result": {
+        "total": 92,
+        "gender": {
+          "m": 87,
+          "w": 5
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 50,
+          "24-29": 40,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 1,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 89,
+          "at": 3,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a9": {
+      "id": 7078,
+      "title": "13 - 15 Jahre",
+      "index": 0,
+      "result": {
+        "total": 46,
+        "gender": {
+          "m": 43,
+          "w": 3
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 12,
+          "24-29": 31,
+          "30-38": 2,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 43,
+          "at": 2,
+          "ch": 0,
+          "other": 1
+        }
+      }
+    },
+    "a10": {
+      "id": 7082,
+      "title": "&gt; 15 Jahre",
+      "index": 0,
+      "result": {
+        "total": 82,
+        "gender": {
+          "m": 80,
+          "w": 2
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 10,
+          "24-29": 41,
+          "30-38": 29,
+          "39-48": 2,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 74,
+          "at": 3,
+          "ch": 3,
+          "other": 2
+        }
+      }
+    }
+  },
+  "q4": {
+    "id": 1152,
+    "title": "Hast du einen Job?",
+    "description": null,
+    "answertype": "single",
+    "index": 0,
+    "a1": {
+      "id": 7085,
+      "title": "Ja, Vollzeit",
+      "index": 0,
+      "result": {
+        "total": 158,
+        "gender": {
+          "m": 151,
+          "w": 7
+        },
+        "age": {
+          "&lt;18": 2,
+          "18-23": 50,
+          "24-29": 77,
+          "30-38": 26,
+          "39-48": 2,
+          "49-55": 1,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 146,
+          "at": 8,
+          "ch": 3,
+          "other": 1
+        }
+      }
+    },
+    "a2": {
+      "id": 7087,
+      "title": "Ja, Halbzeit",
+      "index": 0,
+      "result": {
+        "total": 10,
+        "gender": {
+          "m": 9,
+          "w": 1
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 3,
+          "24-29": 7,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 9,
+          "at": 1,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a3": {
+      "id": 7089,
+      "title": "Ja, Zeitarbeiter",
+      "index": 0,
+      "result": {
+        "total": 4,
+        "gender": {
+          "m": 4,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 3,
+          "24-29": 1,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 3,
+          "at": 1,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a4": {
+      "id": 7091,
+      "title": "Nein, seit kurzem",
+      "index": 0,
+      "result": {
+        "total": 9,
+        "gender": {
+          "m": 9,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 6,
+          "24-29": 3,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 7,
+          "at": 1,
+          "ch": 1,
+          "other": 0
+        }
+      }
+    },
+    "a5": {
+      "id": 7093,
+      "title": "Nein, seit langem",
+      "index": 0,
+      "result": {
+        "total": 6,
+        "gender": {
+          "m": 6,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 0,
+          "24-29": 2,
+          "30-38": 3,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 4,
+          "at": 1,
+          "ch": 0,
+          "other": 1
+        }
+      }
+    },
+    "a6": {
+      "id": 7104,
+      "title": "Azubi",
+      "index": 0,
+      "result": {
+        "total": 44,
+        "gender": {
+          "m": 42,
+          "w": 2
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 40,
+          "24-29": 3,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 42,
+          "at": 0,
+          "ch": 2,
+          "other": 0
+        }
+      }
+    },
+    "a7": {
+      "id": 7106,
+      "title": "Student/in",
+      "index": 0,
+      "result": {
+        "total": 136,
+        "gender": {
+          "m": 129,
+          "w": 7
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 90,
+          "24-29": 45,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 133,
+          "at": 1,
+          "ch": 0,
+          "other": 2
+        }
+      }
+    },
+    "a8": {
+      "id": 7107,
+      "title": "Sch&uuml;ler/in",
+      "index": 0,
+      "result": {
+        "total": 38,
+        "gender": {
+          "m": 32,
+          "w": 6
+        },
+        "age": {
+          "&lt;18": 10,
+          "18-23": 24,
+          "24-29": 4,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 33,
+          "at": 4,
+          "ch": 1,
+          "other": 0
+        }
+      }
+    },
+    "a9": {
+      "id": 7108,
+      "title": "Fr&uuml;hrente",
+      "index": 0,
+      "result": {
+        "total": 1,
+        "gender": {
+          "m": 1,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 1,
+          "24-29": 0,
+          "30-38": 0,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 1,
+          "at": 0,
+          "ch": 0,
+          "other": 0
+        }
+      }
+    },
+    "a10": {
+      "id": 7109,
+      "title": "Rente",
+      "index": 0,
+      "result": {
+        "total": 1,
+        "gender": {
+          "m": 1,
+          "w": 0
+        },
+        "age": {
+          "&lt;18": 0,
+          "18-23": 0,
+          "24-29": 0,
+          "30-38": 1,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 0,
+          "at": 0,
+          "ch": 1,
+          "other": 0
+        }
+      }
+    }
+  },
+  "q5": {
+    "id": 1154,
+    "title": "Beruf mit PC?",
+    "description": "Hast du einen beruf, bei dem du regelm&auml;&szlig;ig mit einem PC arbeitest?",
+    "answertype": "single",
+    "index": 0,
+    "a1": {
+      "id": 7113,
+      "title": "Ja",
+      "index": 0,
+      "result": {
+        "total": 242,
+        "gender": {
+          "m": 227,
+          "w": 15
+        },
+        "age": {
+          "&lt;18": 5,
+          "18-23": 104,
+          "24-29": 105,
+          "30-38": 25,
+          "39-48": 2,
+          "49-55": 1,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 226,
+          "at": 8,
+          "ch": 5,
+          "other": 3
+        }
+      }
+    },
+    "a2": {
+      "id": 7114,
+      "title": "Nein",
+      "index": 0,
+      "result": {
+        "total": 143,
+        "gender": {
+          "m": 136,
+          "w": 7
+        },
+        "age": {
+          "&lt;18": 5,
+          "18-23": 100,
+          "24-29": 33,
+          "30-38": 5,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 130,
+          "at": 9,
+          "ch": 3,
+          "other": 1
+        }
+      }
+    }
+  },
+  "q6": {
+    "id": 1155,
+    "title": "Kannst du Programmieren?",
+    "description": "Kannst du eine oder mehrere Pr0grammiersprachen? (Auch script-/web sprachen gemeint)",
+    "answertype": "single",
+    "index": 0,
+    "a1": {
+      "id": 7145,
+      "title": "Ja (Beruflich gelernt)",
+      "index": 0,
+      "result": {
+        "total": 118,
+        "gender": {
+          "m": 113,
+          "w": 5
+        },
+        "age": {
+          "&lt;18": 3,
+          "18-23": 55,
+          "24-29": 49,
+          "30-38": 11,
+          "39-48": 0,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 110,
+          "at": 4,
+          "ch": 4,
+          "other": 0
+        }
+      }
+    },
+    "a2": {
+      "id": 7155,
+      "title": "Ja (Hobby)",
+      "index": 0,
+      "result": {
+        "total": 98,
+        "gender": {
+          "m": 96,
+          "w": 2
+        },
+        "age": {
+          "&lt;18": 4,
+          "18-23": 56,
+          "24-29": 30,
+          "30-38": 7,
+          "39-48": 1,
+          "49-55": 0,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 91,
+          "at": 3,
+          "ch": 0,
+          "other": 4
+        }
+      }
+    },
+    "a3": {
+      "id": 7157,
+      "title": "Nein",
+      "index": 0,
+      "result": {
+        "total": 188,
+        "gender": {
+          "m": 171,
+          "w": 17
+        },
+        "age": {
+          "&lt;18": 5,
+          "18-23": 102,
+          "24-29": 65,
+          "30-38": 14,
+          "39-48": 1,
+          "49-55": 1,
+          "55&gt;": 0
+        },
+        "country": {
+          "de": 174,
+          "at": 10,
+          "ch": 4,
+          "other": 0
+        }
+      }
+    }
+  }
+}
