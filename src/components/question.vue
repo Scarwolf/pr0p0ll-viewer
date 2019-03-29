@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Frage: {{ data.title }}</h3>
+        <h3 class="text-center">Frage: {{ data.title }}</h3>
         <div class="row">
             <div class="col-md-12">
                 <bar :chart-data="chartData"></bar>
@@ -88,7 +88,7 @@
             chartLabels() {
                 let vm = this;
                 return this.answers.map(answer => {
-                    return vm.formatLabel(answer[1].title, 10);
+                    return vm.formatLabel(answer[1].title, 15);
                 });
             },
             chartDataSets() {

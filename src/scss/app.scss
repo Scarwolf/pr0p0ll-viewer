@@ -5,3 +5,8 @@
 h1, h2, h3 {
   color: $primary;
 }
+
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+}

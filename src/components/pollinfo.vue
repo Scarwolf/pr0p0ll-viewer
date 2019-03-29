@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <h2>{{ data.title }}</h2>
-        <p class="text-white">
+    <div class="text-center">
+        <h1>Pr0p0ll Umfragenauswertung</h1>
+
+        <h2>
+            <span class="text-white">Thema:</span>
+            {{ data.title }}
+        </h2>
+
+        <p>
             {{ data.description }}
         </p>
     </div>
