@@ -74,7 +74,7 @@
                 this.pollDataLoaded = false;
             },
             downloadScreenshot() {
-                html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: '#181818'}).then(canvas => {
+                html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: '#161618'}).then(canvas => {
                     let link = document.createElement('a');
                     link.download = "auswertung.png";
                     link.href = canvas.toDataURL('image/png');
