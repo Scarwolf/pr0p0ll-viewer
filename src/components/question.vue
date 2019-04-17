@@ -57,7 +57,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <bar :chart-data="chartData"></bar>
+                <bar :chart-data="chartData" :render-size="chartHeightSize" :in-bar-label="$parent.options.showLabelInBar"></bar>
             </div>
         </div>
     </div>
@@ -72,7 +72,8 @@
         components: { Bar },
         data() {
             return {
-                chartData: null
+                chartData: null,
+                chartHeightSize: 1
             }
         },
         mounted() {
