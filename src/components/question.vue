@@ -1,6 +1,60 @@
 <template>
     <div>
         <h3 class="text-center">Frage: {{ data.title }}</h3>
+        <div class="row" v-show="options.details">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-center">
+                            Zu dieser Frage wurden {{ totalParticipants }} Stimmen abgegeben.
+                        </h6>
+                    </div>
+                </div>
+                <hr>
+                <div class="detailBox">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h4>Abgegebene Stimmen</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 offset-md-3">
+                            <strong class="text-primary">Nach Geschlecht:</strong><br>
+                            <dl v-for="(value, key) in participantsByGender" class="row mt-0 mb-0">
+                                <dt class="col-md-6">
+                                    {{ key.toUpperCase() }}:
+                                </dt>
+                                <dd class="col-md-6 text-right mt-0 mb-0">
+                                    <span class="col-sm-6">{{ value }}</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-2">
+                            <strong class="text-primary">Nach Altersgruppe:</strong><br>
+                            <dl v-for="(value, key) in participantsByAge" class="row mt-0 mb-0">
+                                <dt class="col-md-6">
+                                    {{ htmlDecode(key) }}:
+                                </dt>
+                                <dd class="col-md-6 text-right mt-0 mb-0">
+                                    <span class="col-sm-6">{{ value }}</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-2">
+                            <strong class="text-primary">Nach Land:</strong><br>
+                            <dl v-for="(value, key) in participantsByCountry" class="row mt-0 mb-0">
+                                <dt class="col-md-6">
+                                    {{ key.toUpperCase() }}:
+                                </dt>
+                                <dd class="col-md-6 text-right mt-0 mb-0">
+                                    <span class="col-sm-6">{{ value }}</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <bar :chart-data="chartData"></bar>
@@ -25,13 +79,27 @@
             this.renderChart();
         },
         methods: {
+            htmlDecode(input) {
+                var e = document.createElement('div');
+                e.innerHTML = input;
+                return e.childNodes[0].nodeValue;
+            },
             renderChart() {
                 this.chartData =  {
                     labels: this.chartLabels,
                     datasets: [this.chartDataSets]
                 };
             },
+            getRandomColor() {
+                let letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            },
             formatLabel(str, maxwidth){
+                str = this.htmlDecode(str);
                 var sections = [];
                 var words = str.split(" ");
                 var temp = "";
@@ -77,6 +145,38 @@
             }
         },
         computed: {
+            options() {
+                return this.$parent.options;
+            },
+            totalParticipants() {
+                return this.answers.map(answer => {
+                    return answer[1].result.total;
+                }).reduce((a,b) => a + b, 0);
+            },
+            participantsByAge() {
+                return this.answers.map(answer => {
+                    return answer[1].result.age;
+                }).reduce((acc, next) => {
+                    Object.entries(next).forEach(([k, v]) => acc[k] = v + (acc[k] || 0));
+                    return acc;
+                }, {});
+            },
+            participantsByCountry() {
+                return this.answers.map(answer => {
+                    return answer[1].result.country;
+                }).reduce((acc, next) => {
+                    Object.entries(next).forEach(([k, v]) => acc[k] = v + (acc[k] || 0));
+                    return acc;
+                }, {});
+            },
+            participantsByGender() {
+                return this.answers.map(answer => {
+                    return answer[1].result.gender;
+                }).reduce((acc, next) => {
+                    Object.entries(next).forEach(([k, v]) => acc[k] = v + (acc[k] || 0));
+                    return acc;
+                }, {});
+            },
             answers() {
                 let obj = JSON.parse(JSON.stringify(this.data));
                 let remove = ['answertype', 'description', 'id', 'index', 'title'];
@@ -98,7 +198,7 @@
 
                 return {
                     label: "Stimmen",
-                    backgroundColor: '#f87979',
+                    backgroundColor: this.options.randomColors ? this.getRandomColor() : '#f87979',
                     data: results
                 };
             }

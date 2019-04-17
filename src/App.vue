@@ -3,11 +3,23 @@
       <div class="text-white bg-dark p-2 text-center">
           Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a>
           <div v-if="pollDataLoaded">
-              <div class="row mt-4">
-                  <div class="col-md-12 text-center">
-                      <div class="btn-group">
-                          <button class="btn btn-primary" @click="reset">Andere Umfrage auswerten</button>
-                          <button class="btn btn-primary" @click="downloadScreenshot">Screenshot herunterladen</button>
+              <div class="container">
+                  <div class="row mt-4">
+                      <div class="col-md-6">
+                          <div class="btn-group">
+                              <button class="btn btn-primary" @click="reset">Andere Umfrage auswerten</button>
+                              <button class="btn btn-primary" @click="downloadScreenshot">Screenshot herunterladen</button>
+                          </div>
+                      </div>
+                      <div class="col-md-6 text-right">
+                          <strong>Einstellungen:</strong><br>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="options-detail" v-model="options.details">
+                              <label class="form-check-label" for="options-detail">
+                                  Antwort-Details anzeigen
+                              </label>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -58,6 +70,9 @@
                 pollData: {},
                 pollDataString: "",
                 pollDataLoaded: false,
+                options: {
+                    details: false
+                }
             }
         },
         computed: {
