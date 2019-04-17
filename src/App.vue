@@ -20,13 +20,6 @@
                                   Antwort-Details anzeigen
                               </label>
                           </div>
-
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="options-label-in-bar" v-model="options.showLabelInBar">
-                              <label class="form-check-label" for="options-label-in-bar">
-                                  Anzahl Stimmen im Diagramm (Experimentell)
-                              </label>
-                          </div>
                       </div>
                   </div>
               </div>
@@ -78,8 +71,7 @@
                 pollDataString: "",
                 pollDataLoaded: false,
                 options: {
-                    details: false,
-                    showLabelInBar: false
+                    details: false
                 }
             }
         },
