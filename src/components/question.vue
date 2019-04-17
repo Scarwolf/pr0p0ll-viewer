@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 class="text-center">Frage: {{ data.title }}</h3>
+        <h3 class="text-center">Frage: {{ this.decodeHTML(data.title) }}</h3>
         <div class="row" v-show="options.details">
             <div class="col-md-12">
                 <div class="row">
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-2 offset-md-3">
                             <strong class="text-primary">Nach Geschlecht:</strong><br>
-                            <dl v-for="(value, key) in participantsByGender" class="row mt-0 mb-0">
+                            <dl v-for="(value, key) in participantsByGender" class="row mt-0 mb-0" :key="key">
                                 <dt class="col-md-6">
                                     {{ key.toUpperCase() }}:
                                 </dt>
@@ -31,9 +31,9 @@
                         </div>
                         <div class="col-md-2">
                             <strong class="text-primary">Nach Altersgruppe:</strong><br>
-                            <dl v-for="(value, key) in participantsByAge" class="row mt-0 mb-0">
+                            <dl v-for="(value, key) in participantsByAge" class="row mt-0 mb-0" :key="key">
                                 <dt class="col-md-6">
-                                    {{ htmlDecode(key) }}:
+                                    {{ decodeHTML(key) }}:
                                 </dt>
                                 <dd class="col-md-6 text-right mt-0 mb-0">
                                     <span class="col-sm-6">{{ value }}</span>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-2">
                             <strong class="text-primary">Nach Land:</strong><br>
-                            <dl v-for="(value, key) in participantsByCountry" class="row mt-0 mb-0">
+                            <dl v-for="(value, key) in participantsByCountry" class="row mt-0 mb-0" :key="key">
                                 <dt class="col-md-6">
                                     {{ key.toUpperCase() }}:
                                 </dt>
@@ -79,11 +79,6 @@
             this.renderChart();
         },
         methods: {
-            htmlDecode(input) {
-                var e = document.createElement('div');
-                e.innerHTML = input;
-                return e.childNodes[0].nodeValue;
-            },
             renderChart() {
                 this.chartData =  {
                     labels: this.chartLabels,
@@ -99,7 +94,7 @@
                 return color;
             },
             formatLabel(str, maxwidth){
-                str = this.htmlDecode(str);
+                str = this.decodeHTML(str);
                 var sections = [];
                 var words = str.split(" ");
                 var temp = "";
@@ -188,12 +183,12 @@
             chartLabels() {
                 let vm = this;
                 return this.answers.map(answer => {
-                    return vm.formatLabel(answer[1].title, 15);
+                    return vm.formatLabel(this.decodeHTML(answer[1].title), 15);
                 });
             },
             chartDataSets() {
                 let results = this.answers.map(answer => {
-                    return answer[1].result.total;
+                    return this.decodeHTML(answer[1].result.total);
                 });
 
                 return {

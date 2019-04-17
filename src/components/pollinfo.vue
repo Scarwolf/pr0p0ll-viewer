@@ -4,11 +4,11 @@
 
         <h2>
             <span class="text-white">Thema:</span>
-            {{ data.title }}
+            {{ decodeHTML(data.title) }}
         </h2>
 
         <p>
-            {{ data.description }}
+            {{ decodeHTML(data.description) }}
         </p>
     </div>
 </template>
