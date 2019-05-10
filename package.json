@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@voerro/vue-modal": "^1.4.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.7.3",

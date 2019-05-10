@@ -1,5 +1,21 @@
 <template>
   <div id="app">
+
+      <!-- Screenshot Modal -->
+      <modal id="screenModal" v-cloak>
+          <template slot="title">
+              Screenshot herunterladen
+          </template>
+
+          <div slot="body">
+              <p>
+                  Rechtsklicke auf das Bild -> Speichern unter. Das Bild ist optimiert um auf Pr0 hochgeladen zu werden.
+              </p>
+
+              <img :src="screenShotToDownload" alt="Canvas">
+          </div>
+      </modal>
+
       <div class="text-white bg-dark p-2 text-center">
           Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a>
           <div v-if="pollDataLoaded">
@@ -72,7 +88,8 @@
                 pollDataLoaded: false,
                 options: {
                     details: false
-                }
+                },
+                screenShotToDownload: ''
             }
         },
         computed: {
@@ -87,13 +104,18 @@
                 this.pollData = {};
                 this.pollDataString = "";
                 this.pollDataLoaded = false;
+
+                this.screenShotToDownload = '';
             },
             downloadScreenshot() {
                 html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: '#161618'}).then(canvas => {
-                    let link = document.createElement('a');
-                    link.download = "auswertung.png";
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
+                    // let link = document.createElement('a');
+                    // link.download = "auswertung.png";
+                    // link.href = canvas.toDataURL('image/png');
+                    // link.click();
+
+                    this.screenShotToDownload = canvas.toDataURL('image/png');
+                    VoerroModal.show('screenModal');
                 });
             },
             async checkPollData() {
