@@ -23,6 +23,11 @@ Vue.mixin({
   }
 });
 
+import { Modal, VoerroModal } from '@voerro/vue-modal';
+
+Vue.component('modal', Modal);
+window.VoerroModal = VoerroModal;
+
 new Vue({
   render: h => h(App),
 }).$mount('#app');
