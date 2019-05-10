@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" height="500">
                 <bar :chart-data="chartData"></bar>
             </div>
         </div>
@@ -72,7 +72,7 @@
         components: { Bar },
         data() {
             return {
-                chartData: null
+                chartData: null,
             }
         },
         mounted() {

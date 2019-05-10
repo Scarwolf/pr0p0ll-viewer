@@ -59,7 +59,7 @@
           </div>
 
           <div v-else>
-              <div class="row mt-4" id="screenshotContainer">
+              <div class="row mt-4" id="screenshotContainer" style="max-width: 1280px;">
                   <div class="col-md-12">
                       <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
                       <hr>
@@ -115,6 +115,8 @@
                     // link.click();
 
                     this.screenShotToDownload = canvas.toDataURL('image/png');
+
+                    // eslint-disable-next-line
                     VoerroModal.show('screenModal');
                 });
             },
