@@ -1,29 +1,9 @@
 # pr0p0llviewer
 
-## Project setup
-```
-npm install
-```
+This project allows you to copy the Result-JSON data provided by pr0p0ll.com on a poll and render it to charts based on the data.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#Link
+Pr0p0ll-Viewer: https://scarwolf.github.io/pr0p0ll-viewer/
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Pr0p0ll: http://pr0p0ll.com
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
