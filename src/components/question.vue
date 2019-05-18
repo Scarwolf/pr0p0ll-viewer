@@ -56,8 +56,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12" height="500">
-                <bar :chart-data="chartData" :labelFontColor="this.$parent.options.labelFontColor"></bar>
+            <div class="col-md-12">
+                <bar
+                        :chart-data="chartData"
+                        :labelFontColor="this.$parent.options.labelFontColor"
+                        :height="500"
+                        :width="1052"></bar>
             </div>
         </div>
     </div>

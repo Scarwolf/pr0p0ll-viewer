@@ -27,7 +27,7 @@ export default {
                         }
                     }]
                 },
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 responsive: true
             }
         }

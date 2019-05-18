@@ -67,7 +67,7 @@
 
           <div v-else>
               <div class="row mt-4">
-                  <div class="col-md-12 " id="screenshotContainer" style="max-width: 1052px; margin-left: auto; margin-right: auto;" v-if="rendered">
+                  <div class="col-md-12" id="screenshotContainer" style="width: 1052px; margin-left: auto; margin-right: auto;" v-if="rendered">
                       <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
                       <hr>
                       <question :data="question" v-for="question in questions" :key="question.id"></question>
