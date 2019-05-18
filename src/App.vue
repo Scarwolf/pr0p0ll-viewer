@@ -36,6 +36,13 @@
                                   Antwort-Details anzeigen
                               </label>
                           </div>
+
+                          <div class="row">
+                              <div class="col-md-6 offset-md-6 float-right">
+                                  Farbe für Label: &nbsp;
+                                  <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" />
+                              </div>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -59,8 +66,8 @@
           </div>
 
           <div v-else>
-              <div class="row mt-4" id="screenshotContainer" style="max-width: 1280px;">
-                  <div class="col-md-12">
+              <div class="row mt-4">
+                  <div class="col-md-12 " id="screenshotContainer" style="max-width: 1052px; margin-left: auto; margin-right: auto;" v-if="rendered">
                       <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
                       <hr>
                       <question :data="question" v-for="question in questions" :key="question.id"></question>
@@ -75,11 +82,12 @@
     import pollInfo from './components/pollinfo';
     import question from './components/question';
     import html2canvas from 'html2canvas';
+    import ColorPicker from './components/external/ColorPicker';
 
     export default {
         name: 'app',
         components: {
-            pollInfo, question
+            pollInfo, question, ColorPicker
         },
         data() {
             return {
@@ -87,9 +95,11 @@
                 pollDataString: "",
                 pollDataLoaded: false,
                 options: {
-                    details: false
+                    details: false,
+                    labelFontColor: '#fff',
                 },
-                screenShotToDownload: ''
+                screenShotToDownload: '',
+                rendered: false
             }
         },
         computed: {
@@ -100,22 +110,23 @@
             }
         },
         methods: {
+            rerender() {
+                this.rendered = false;
+                this.$nextTick(() => {
+                    this.rendered = true;
+                });
+            },
             reset() {
                 this.pollData = {};
                 this.pollDataString = "";
                 this.pollDataLoaded = false;
+                this.rendered = false;
 
                 this.screenShotToDownload = '';
             },
             downloadScreenshot() {
                 html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: '#161618'}).then(canvas => {
-                    // let link = document.createElement('a');
-                    // link.download = "auswertung.png";
-                    // link.href = canvas.toDataURL('image/png');
-                    // link.click();
-
                     this.screenShotToDownload = canvas.toDataURL('image/png');
-
                     // eslint-disable-next-line
                     VoerroModal.show('screenModal');
                 });
@@ -133,6 +144,7 @@
                     let obj = this.pollData;
                     if(typeof obj === 'object'){
                         this.pollDataLoaded = true;
+                        this.rendered = true;
                         return true;
                     }
                     throw 'error';
