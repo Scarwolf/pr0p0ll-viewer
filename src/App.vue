@@ -16,18 +16,18 @@
           </div>
       </modal>
 
-      <div class="text-white bg-dark p-2 text-center">
-          Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a>
+      <div class="text-white bg-dark p-2">
+          <div  class="text-center">
+              <span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span>
+          </div>
           <div v-if="pollDataLoaded">
               <div class="container">
                   <div class="row mt-4">
-                      <div class="col-md-6">
-                          <div class="btn-group">
-                              <button class="btn btn-primary" @click="reset">Andere Umfrage auswerten</button>
-                              <button class="btn btn-primary" @click="downloadScreenshot">Screenshot herunterladen</button>
-                          </div>
+                      <div class="col-md-4">
+                          <button class="btn btn-secondary" @click="reset">Andere Umfrage auswerten</button><br>
+                          <button class="btn btn-secondary mt-2" @click="downloadScreenshot">Screenshot herunterladen</button>
                       </div>
-                      <div class="col-md-6 text-right">
+                      <div class="col-md-8 text-right">
                           <strong>Einstellungen:</strong><br>
 
                           <div class="form-check">
@@ -37,10 +37,26 @@
                               </label>
                           </div>
 
-                          <div class="row">
+                          <div class="row mt-3">
                               <div class="col-md-6 offset-md-6 float-right">
                                   Farbe für Label: &nbsp;
                                   <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" />
+                                  &nbsp; <span class="badge badge-light mouseHover" @click="options.labelFontColor = '#fff'">Auf Standard setzen</span>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-md-6 offset-md-6 float-right">
+                                  Hintergrundfarbe: &nbsp;
+                                  <ColorPicker :color="options.bgColor" v-model="options.bgColor" />
+                                  &nbsp; <span class="badge badge-light mouseHover" @click="options.bgColor = '#161618'">Auf Standard setzen</span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6 offset-md-6 float-right">
+                                  Titelfarbe: &nbsp;
+                                  <ColorPicker :color="options.titleColor" v-model="options.titleColor" />
+                                  &nbsp; <span class="badge badge-light mouseHover" @click="options.titleColor = '#ee4d2e'">Auf Standard setzen</span>
                               </div>
                           </div>
                       </div>
@@ -67,7 +83,7 @@
 
           <div v-else>
               <div class="row mt-4">
-                  <div class="col-md-12" id="screenshotContainer" style="width: 1052px; margin-left: auto; margin-right: auto;" v-if="rendered">
+                  <div class="col-md-12" id="screenshotContainer" style="width: 1052px; margin-left: auto; margin-right: auto;" :style="{ backgroundColor: options.bgColor}" v-if="rendered">
                       <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
                       <hr>
                       <question :data="question" v-for="question in questions" :key="question.id"></question>
@@ -97,6 +113,8 @@
                 options: {
                     details: false,
                     labelFontColor: '#fff',
+                    bgColor: '#161618',
+                    titleColor: '#ee4d2e'
                 },
                 screenShotToDownload: '',
                 rendered: false
@@ -107,6 +125,17 @@
                 let obj = JSON.parse(JSON.stringify(this.pollData));
                 delete obj.info;
                 return obj;
+            },
+            labelColorComputed() {
+                return this.options.labelFontColor;
+            },
+            setTitleColor() {
+                return 'color: ' + this.options.titleColor + ';';
+            }
+        },
+        watch: {
+            labelColorComputed() {
+                this.rerender();
             }
         },
         methods: {
@@ -125,7 +154,7 @@
                 this.screenShotToDownload = '';
             },
             downloadScreenshot() {
-                html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: '#161618'}).then(canvas => {
+                html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: this.options.bgColor}).then(canvas => {
                     this.screenShotToDownload = canvas.toDataURL('image/png');
                     // eslint-disable-next-line
                     VoerroModal.show('screenModal');

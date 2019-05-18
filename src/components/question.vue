@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 class="text-center">Frage: {{ this.decodeHTML(data.title) }}</h3>
+        <h3 class="text-center" :style="$parent.setTitleColor">Frage: {{ this.decodeHTML(data.title) }}</h3>
         <div class="row" v-show="options.details">
             <div class="col-md-12">
                 <div class="row">

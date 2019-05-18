@@ -62,7 +62,7 @@
                 else {
                     this.colorValue = 'rgba(' + color.rgba.r + ', ' + color.rgba.g + ', ' + color.rgba.b + ', ' + color.rgba.a + ')';
                 }
-                this.$parent.rerender();
+                //this.$parent.rerender();
             },
             documentClick(e) {
                 let el = this.$refs.colorpicker,

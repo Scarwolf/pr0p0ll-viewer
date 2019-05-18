@@ -1,8 +1,8 @@
 <template>
     <div class="text-center">
-        <h1>Pr0p0ll Umfragenauswertung</h1>
+        <h1 :style="$parent.setTitleColor">Pr0p0ll Umfragenauswertung</h1>
 
-        <h2>
+        <h2 :style="$parent.setTitleColor">
             <span class="text-white">Thema:</span>
             {{ decodeHTML(data.title) }}
         </h2>
@@ -21,7 +21,3 @@
         ]
     }
 </script>
-
-<style scoped>
-
-</style>
