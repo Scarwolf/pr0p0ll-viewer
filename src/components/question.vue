@@ -1,15 +1,13 @@
 <template>
-    <div>
+    <div class="mt-3">
         <h3 class="text-center" :style="$parent.setTitleColor">Frage: {{ this.decodeHTML(data.title) }}</h3>
         <div class="row mt-3">
-            <div class="col-md-8">
+            <div class="col-md-12 text-center">
                 <h6>
                     Zu dieser Frage wurden {{ totalParticipants }} Stimmen abgegeben.
+                    <span v-if="data.answertype === 'single'">(Eine Stimme pro User)</span>
+                    <span v-if="data.answertype === 'multi'">(Mehrere Stimmen pro User)</span>
                 </h6>
-            </div>
-            <div class="col-md-4 text-right">
-                <span v-if="data.answertype === 'single'">Eine Stimme pro User</span>
-                <span v-if="data.answertype === 'multi'">Mehrere Stimmen pro User</span>
             </div>
         </div>
         <div class="row mt-3" v-show="options.details">
@@ -58,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-12">
                 <bar
                         :chart-data="chartData"
