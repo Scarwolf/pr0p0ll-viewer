@@ -27,8 +27,15 @@
       </modal>
 
       <div class="text-white bg-dark p-2">
-          <div  class="text-center">
-              <span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
+                  <div class="col-md-6 text-right">
+                      <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
+                          <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
+                      </a>
+                  </div>
+              </div>
           </div>
           <div v-if="pollDataLoaded">
               <div class="container">
