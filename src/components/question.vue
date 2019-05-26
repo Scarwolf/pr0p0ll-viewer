@@ -1,16 +1,19 @@
 <template>
     <div>
         <h3 class="text-center" :style="$parent.setTitleColor">Frage: {{ this.decodeHTML(data.title) }}</h3>
-        <div class="row" v-show="options.details">
+        <div class="row mt-3">
+            <div class="col-md-8">
+                <h6>
+                    Zu dieser Frage wurden {{ totalParticipants }} Stimmen abgegeben.
+                </h6>
+            </div>
+            <div class="col-md-4 text-right">
+                <span v-if="data.answertype === 'single'">Eine Stimme pro User</span>
+                <span v-if="data.answertype === 'multi'">Mehrere Stimmen pro User</span>
+            </div>
+        </div>
+        <div class="row mt-3" v-show="options.details">
             <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h6 class="text-center">
-                            Zu dieser Frage wurden {{ totalParticipants }} Stimmen abgegeben.
-                        </h6>
-                    </div>
-                </div>
-                <hr>
                 <div class="detailBox">
                     <div class="row">
                         <div class="col-md-12 text-center">
@@ -144,6 +147,9 @@
             }
         },
         computed: {
+            getAnswerType() {
+                return this.data.answertype;
+            },
             options() {
                 return this.$parent.options;
             },
