@@ -10,8 +10,16 @@
                 </h6>
             </div>
         </div>
-        <div class="row mt-3" v-if="getDescription !== null">
-           <div class="col-md-12 text-center">
+        <div class="row mt-3" v-if="hasDescription">
+            <div class="col-md-12 text-center" data-html2canvas-ignore>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
+                    <label class="form-check-label" :for="'options-detail-' + data.id">
+                        Beschreibung dieser Frage anzeigen?
+                    </label>
+                </div>
+            </div>
+           <div class="col-md-12 text-center" v-if="questionOptions.showDescription">
                {{ getDescription }}
            </div>
         </div>
@@ -83,6 +91,9 @@
         data() {
             return {
                 chartData: null,
+                questionOptions: {
+                    showDescription: true
+                }
             }
         },
         mounted() {
@@ -150,6 +161,9 @@
             }
         },
         computed: {
+            hasDescription() {
+                return this.data.description !== null;
+            },
             getDescription() {
                 return this.data.description;
             },
