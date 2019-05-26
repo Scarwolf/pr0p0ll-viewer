@@ -10,6 +10,11 @@
                 </h6>
             </div>
         </div>
+        <div class="row mt-3" v-if="getDescription !== null">
+           <div class="col-md-12 text-center">
+               {{ getDescription }}
+           </div>
+        </div>
         <div class="row mt-3" v-show="options.details">
             <div class="col-md-12">
                 <div class="detailBox">
@@ -145,8 +150,8 @@
             }
         },
         computed: {
-            getAnswerType() {
-                return this.data.answertype;
+            getDescription() {
+                return this.data.description;
             },
             options() {
                 return this.$parent.options;
