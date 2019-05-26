@@ -15,7 +15,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
                     <label class="form-check-label" :for="'options-detail-' + data.id">
-                        Beschreibung dieser Frage anzeigen?
+                        <strong>Beschreibung dieser Frage anzeigen?</strong>
                     </label>
                 </div>
             </div>

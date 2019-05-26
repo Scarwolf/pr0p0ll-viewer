@@ -8,11 +8,21 @@
           </template>
 
           <div slot="body">
-              <p>
-                  Rechtsklicke auf das Bild -> Speichern unter. Das Bild ist optimiert um auf Pr0 hochgeladen zu werden.
-              </p>
+             <div class="text-center">
+                 <p>
+                     Rechtsklicke auf das Bild -> Speichern unter. Das Bild ist optimiert um auf Pr0 hochgeladen zu werden.
+                 </p>
 
-              <img :src="screenShotToDownload" alt="Canvas">
+                 <p>
+                     <strong>WICHTIG:</strong>
+                 </p>
+                 <p>
+                     Damit die Hintergrundfarbe sich nach dem Uploaden auf das pr0 nicht ändert, überprüft bitte ob das Bild hier maximal 1052px breit ist und skaliert die Breite notfalls manuell.<br>
+                     Ich arbeite daran dass das Bild diese Breite nicht überschreitet.
+                 </p>
+
+                 <img :src="screenShotToDownload" alt="Canvas">
+             </div>
           </div>
       </modal>
 

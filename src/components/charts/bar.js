@@ -24,7 +24,7 @@ export default {
                     yAxes: [{
                         ticks: {
                             fontColor: this.labelFontColor,
-                            suggestedMin: 0
+                            suggestedMin: 0,
                         }
                     }]
                 },
