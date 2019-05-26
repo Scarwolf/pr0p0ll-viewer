@@ -23,7 +23,8 @@ export default {
                     }],
                     yAxes: [{
                         ticks: {
-                            fontColor: this.labelFontColor
+                            fontColor: this.labelFontColor,
+                            suggestedMin: 0
                         }
                     }]
                 },
