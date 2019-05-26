@@ -220,7 +220,7 @@
 
                 return {
                     label: "Stimmen",
-                    backgroundColor: this.options.randomColors ? this.getRandomColor() : '#f87979',
+                    backgroundColor: this.options.barColor,
                     data: results
                 };
             }

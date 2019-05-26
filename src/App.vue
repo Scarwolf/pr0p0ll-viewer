@@ -22,12 +22,15 @@
           </div>
           <div v-if="pollDataLoaded">
               <div class="container">
-                  <div class="row mt-4">
-                      <div class="col-md-4">
-                          <button class="btn btn-secondary" @click="reset">Andere Umfrage auswerten</button><br>
-                          <button class="btn btn-secondary mt-2" @click="downloadScreenshot">Screenshot herunterladen</button>
+                  <div class="row mt-3">
+                      <div class="col-md-12 text-center">
+                          <button class="btn btn-secondary" @click="reset">Andere Umfrage auswerten</button>
+                          <button class="btn btn-secondary" @click="downloadScreenshot">Screenshot herunterladen</button>
                       </div>
-                      <div class="col-md-8 text-right">
+                  </div>
+
+                  <div class="row mt-3">
+                      <div class="col-md-12 text-center">
                           <strong>Einstellungen:</strong><br>
 
                           <div class="form-check">
@@ -36,31 +39,31 @@
                                   Antwort-Details anzeigen
                               </label>
                           </div>
-
-                          <div class="row mt-3">
-                              <div class="col-md-6 offset-md-6 float-right">
-                                  Farbe für Label: &nbsp;
-                                  <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" />
-                                  &nbsp; <span class="badge badge-light mouseHover" @click="options.labelFontColor = '#fff'">Auf Standard setzen</span>
-                              </div>
-                          </div>
-
-                          <div class="row">
-                              <div class="col-md-6 offset-md-6 float-right">
-                                  Hintergrundfarbe: &nbsp;
-                                  <ColorPicker :color="options.bgColor" v-model="options.bgColor" />
-                                  &nbsp; <span class="badge badge-light mouseHover" @click="options.bgColor = '#161618'">Auf Standard setzen</span>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6 offset-md-6 float-right">
-                                  Titelfarbe: &nbsp;
-                                  <ColorPicker :color="options.titleColor" v-model="options.titleColor" />
-                                  &nbsp; <span class="badge badge-light mouseHover" @click="options.titleColor = '#ee4d2e'">Auf Standard setzen</span>
-                              </div>
-                          </div>
                       </div>
                   </div>
+                  <div class="row mt-3 text-center pb-2">
+                      <div class="col-md-3">
+                          <strong>Farbe für Label</strong> <br>
+                          <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" /><br>
+                          <span class="badge badge-light mouseHover" @click="options.labelFontColor = '#fff'">Standard</span>
+                      </div>
+                      <div class="col-md-3">
+                          <strong>Balkenfarbe</strong><br>
+                          <ColorPicker :color="options.barColor" v-model="options.barColor" /><br>
+                          <span class="badge badge-light mouseHover" @click="options.barColor = '#f87979'">Standard</span>
+                      </div>
+                      <div class="col-md-3">
+                          <strong>Hintergrundfarbe</strong><br>
+                          <ColorPicker :color="options.bgColor" v-model="options.bgColor" /><br>
+                          <span class="badge badge-light mouseHover" @click="options.bgColor = '#161618'">Standard</span>
+                      </div>
+                      <div class="col-md-3">
+                          <strong>Titelfarbe</strong><br>
+                          <ColorPicker :color="options.titleColor" v-model="options.titleColor" /><br>
+                          <span class="badge badge-light mouseHover" @click="options.titleColor = '#ee4d2e'">Standard</span>
+                      </div>
+                  </div>
+
               </div>
           </div>
       </div>
@@ -114,7 +117,8 @@
                     details: false,
                     labelFontColor: '#fff',
                     bgColor: '#161618',
-                    titleColor: '#ee4d2e'
+                    titleColor: '#ee4d2e',
+                    barColor: '#f87979'
                 },
                 screenShotToDownload: '',
                 rendered: false
@@ -129,12 +133,18 @@
             labelColorComputed() {
                 return this.options.labelFontColor;
             },
+            barColorComputed() {
+                return this.options.barColor;
+            },
             setTitleColor() {
                 return 'color: ' + this.options.titleColor + ';';
             }
         },
         watch: {
             labelColorComputed() {
+                this.rerender();
+            },
+            barColorComputed() {
                 this.rerender();
             }
         },
