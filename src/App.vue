@@ -49,7 +49,14 @@
 
                   <div class="row mt-3">
                       <div class="col-md-12 text-center">
-                          <strong>Einstellungen:</strong><br>
+                          <strong>Einstellungen:</strong>
+
+                          <div class="form-check" v-if="pollData.info.description !== null">
+                              <input class="form-check-input" type="checkbox" id="options-poll-description" v-model="options.showPollDesc">
+                              <label class="form-check-label" for="options-poll-description">
+                                  Beschreibung der Umfrage anzeigen?
+                              </label>
+                          </div>
 
                           <div class="form-check">
                               <input class="form-check-input" type="checkbox" id="options-detail" v-model="options.details">
@@ -154,6 +161,7 @@
                 pollDataString: "",
                 pollDataLoaded: false,
                 options: {
+                    showPollDesc: true,
                     details: false,
                     labelFontColor: '#fff',
                     bgColor: '#161618',

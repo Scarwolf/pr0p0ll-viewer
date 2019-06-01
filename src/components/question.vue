@@ -11,11 +11,11 @@
             </div>
         </div>
         <div class="row mt-3" v-if="hasDescription">
-            <div class="col-md-12 text-center" data-html2canvas-ignore>
+            <div class="col-md-12 text-center question-settings" data-html2canvas-ignore>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
                     <label class="form-check-label" :for="'options-detail-' + data.id">
-                        <strong>Beschreibung dieser Frage anzeigen?</strong>
+                        Beschreibung dieser Frage anzeigen?
                     </label>
                 </div>
             </div>

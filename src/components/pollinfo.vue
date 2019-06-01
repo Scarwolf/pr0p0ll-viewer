@@ -7,7 +7,7 @@
             {{ decodeHTML(data.title) }}
         </h2>
 
-        <p>
+        <p v-if="pollOptions.showPollDesc && hasDescription">
             {{ decodeHTML(data.description) }}
         </p>
     </div>
@@ -18,6 +18,14 @@
         name: "pollinfo",
         props: [
             'data'
-        ]
+        ],
+        computed: {
+            pollOptions() {
+                return this.$parent.options;
+            },
+            hasDescription() {
+                return this.data.description !== null;
+            },
+        }
     }
 </script>
