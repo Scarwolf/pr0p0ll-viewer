@@ -74,6 +74,7 @@
                       </div>
                       <div class="col-md-3">
                           <strong>Balkenfarbe</strong><br>
+                          <span class="text-muted">Nur Balkendiagramm</span><br>
                           <ColorPicker :color="options.barColor" v-model="options.barColor" /><br>
                           <span class="badge badge-light mouseHover" @click="options.barColor = '#f87979'">Standard</span>
                       </div>

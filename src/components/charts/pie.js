@@ -1,6 +1,8 @@
 import { Pie, mixins } from 'vue-chartjs';
 const { reactiveProp } = mixins;
 
+import labels from 'chartjs-plugin-labels';
+
 export default {
     extends: Pie,
     mixins: [reactiveProp],
@@ -8,6 +10,12 @@ export default {
     data() {
         return {
             options: {
+                plugins: {
+                    labels: {
+                        render: 'value',
+                        fontColor: this.labelFontColor,
+                    }
+                },
                 legend: {
                     labels: {
                         fontColor: this.labelFontColor

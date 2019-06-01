@@ -294,13 +294,13 @@
                     label: "Stimmen",
                     backgroundColor: [
                         '#ee4d2e',
-                        '#1db992',
+                        '#10366f',
                         '#bfbc06',
                         '#008fff',
                         '#ff0082',
+                        '#1db992',
                         '#c52b2f',
-                        '#addc8d',
-                        '#10366f'
+                        '#addc8d'
                     ],
                     data: results
                 };
