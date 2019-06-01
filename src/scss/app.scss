@@ -26,3 +26,11 @@ body, html {
 .mouseHover {
   cursor: pointer;
 }
+
+.instructions {
+  background-color: #333333;
+  padding: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}

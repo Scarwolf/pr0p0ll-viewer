@@ -87,17 +87,36 @@
 
       <div class="container">
           <div class="row mt-4" v-if="!pollDataLoaded">
-              <div class="col-md-12">
-                  <h1 class="text-center">Pr0p0ll Viewer</h1>
-                  <h3>Howto: JSON-Code von pr0p0ll kopieren</h3>
-                  <p>Um dieses Tool nutzen zu können musst du nachdem deine Umfrage beendet ist den JSON-Code kopieren.</p>
-                  <p>Du findest diesen indem du bei pr0p0ll auf "Eigene" gehst und anschliessend bei der gewünschten Umfrage auf "Ergebnisse ansehen".</p>
-                  <p>Klicke danach auf "Ergebnisse ansehen" und kopiere den ganzen Code den du siehst mit STRG + A und STRG + C.</p>
-                  <p>Füge den Code im unteren Feld ein um deine Ergebnisse in Charts zu sehen.</p>
-                  <hr>
-                  <label for="jsonInput">Füge hier deinen JSON-Code von pr0p0ll ein:</label>
-                  <textarea  id="jsonInput" cols="30" rows="10" class="form-control" v-model="pollDataString"></textarea>
-                  <button class="btn btn-primary mt-4" @click="loadPollData">Laden</button>
+              <div class="col-md-12 text-center">
+                  <h1>Pr0p0ll Viewer</h1>
+
+                  <button class="btn btn-secondary" @click="showTutorial = !showTutorial">
+                      Erklärungen / Turorial {{ showTutorial ? 'ausblenden' : 'einblenden' }}
+                  </button>
+
+                  <div class="row mt-4" v-if="showTutorial">
+                      <div class="col-md-8 offset-md-2 text-center instructions">
+                          <h3>Howto: JSON-Code von pr0p0ll kopieren</h3>
+                          <div class="embed-responsive embed-responsive-16by9 mb-3">
+                              <video controls="" class="embed-responsive-item">
+                                  <source src="tutorial.mp4" type="video/mp4">
+                              </video>
+                          </div>
+                          <p>Um dieses Tool nutzen zu können musst du nachdem deine Umfrage beendet ist den JSON-Code kopieren.</p>
+                          <p>Du findest diesen indem du bei pr0p0ll auf "Eigene" gehst und anschliessend bei der gewünschten Umfrage auf "Ergebnisse ansehen".</p>
+                          <p>Klicke danach auf "Ansehen" neben "Ergebnis-JSON" und kopiere den ganzen Code den du siehst mit STRG + A und STRG + C.</p>
+                          <p>Füge den Code im unteren Feld ein um deine Ergebnisse in Charts zu sehen.</p>
+                      </div>
+                  </div>
+
+                  <div class="row mt-4">
+                      <div class="col-md-12">
+                          <label for="jsonInput">Füge hier deinen JSON-Code von pr0p0ll ein:</label>
+                          <textarea  id="jsonInput" cols="30" rows="10" class="form-control" v-model="pollDataString"></textarea>
+                          <button class="btn btn-primary mt-4" @click="loadPollData">Laden</button>
+                          <button class="btn btn-outline-dark mt-4 ml-2" @click="loadDemo">Demo laden</button>
+                      </div>
+                  </div>
               </div>
           </div>
 
@@ -119,6 +138,7 @@
     import question from './components/question';
     import html2canvas from 'html2canvas';
     import ColorPicker from './components/external/ColorPicker';
+    import axios from 'axios';
 
     export default {
         name: 'app',
@@ -127,6 +147,8 @@
         },
         data() {
             return {
+                showTutorial: false,
+
                 pollData: {},
                 pollDataString: "",
                 pollDataLoaded: false,
@@ -166,6 +188,19 @@
             }
         },
         methods: {
+            loadDemo() {
+                let vm = this;
+
+                axios
+                    .get('/demo.json')
+                    .then(function (response) {
+                    vm.pollDataString = JSON.stringify(response.data);
+                    vm.loadPollData();
+                })
+                    .catch(function (error) {
+                        alert("Demo konnte nicht geladen werden. Sorry ¯\\_(ツ)_/¯");
+                    })
+            },
             rerender() {
                 this.rendered = false;
                 this.$nextTick(() => {
