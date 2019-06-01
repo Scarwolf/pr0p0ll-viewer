@@ -131,7 +131,7 @@
                           <label for="jsonInput">Füge hier deinen JSON-Code von pr0p0ll ein:</label>
                           <textarea  id="jsonInput" cols="30" rows="10" class="form-control" v-model="pollDataString"></textarea>
                           <button class="btn btn-primary mt-4" @click="loadPollData">Laden</button>
-                          <button class="btn btn-outline-dark mt-4 ml-2" @click="loadDemo">Demo laden</button>
+                          <button class="btn btn-outline-dark mt-4 ml-2 text-white" @click="loadDemo">Demo laden</button>
                       </div>
                   </div>
               </div>
@@ -175,7 +175,7 @@
                     labelFontColor: '#fff',
                     bgColor: '#161618',
                     titleColor: '#ee4d2e',
-                    barColor: '#f87979'
+                    barColor: '#ee4d2e'
                 },
                 screenShotToDownload: '',
                 rendered: false
@@ -215,6 +215,7 @@
                     vm.pollDataString = JSON.stringify(response.data);
                     vm.loadPollData();
                 })
+                    // eslint-disable-next-line
                     .catch(function (error) {
                         alert("Demo konnte nicht geladen werden. Sorry ¯\\_(ツ)_/¯");
                     })

@@ -42,4 +42,18 @@ body, html {
   -moz-border-radius: 8px;
   border-radius: 8px;
   border: 2px dotted #ee4d2e;
+
+  .settings-label {
+    background-color: #ee4d2e;
+    color: white;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    text-align: center;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+  }
 }

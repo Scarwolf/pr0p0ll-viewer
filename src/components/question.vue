@@ -10,14 +10,47 @@
                 </h6>
             </div>
         </div>
-        <div class="row mt-3" v-if="hasDescription">
-            <div class="col-md-12 text-center question-settings" data-html2canvas-ignore>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
-                    <label class="form-check-label" :for="'options-detail-' + data.id">
-                        Beschreibung dieser Frage anzeigen?
-                    </label>
+        <div class="row mt-3" data-html2canvas-ignore>
+            <div class="col-md-12 mb-4">
+                <div class="row question-settings">
+
+                    <div class="col-md-6">
+                        <h5>Einstellungen</h5>
+                        <div class="form-check" v-if="hasDescription">
+                            <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
+                            <label class="form-check-label" :for="'options-detail-' + data.id">
+                                Beschreibung dieser Frage anzeigen?
+                            </label>
+                        </div>
+                        <i v-else>Keine besonderen Einstellungen verfügbar.</i>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                        <h5>Diagramm-Typ</h5>
+                        <div class="btn-group">
+                            <button class="btn btn-sm"
+                                    :disabled="isPieChartDisabled"
+                                    :class="getButtonClassForChartType('pie')"
+                                    @click="setChartType('pie')"
+                                    title="Kuchendiagramm">
+                                <fa-icon icon="chart-pie"></fa-icon>
+                            </button>
+                            <button class="btn btn-sm"
+                                    :class="getButtonClassForChartType('bar')"
+                                    @click="setChartType('bar')"
+                                    title="Balkendiagramm">
+                                <fa-icon icon="chart-bar"></fa-icon>
+                            </button>
+                        </div>
+                        <span v-if="isPieChartDisabled" class="text-muted">
+                            <br>
+                            Kuchendiagramm nur verfügbar bei maximal 8 Antwortmöglichkeiten.
+                        </span>
+                    </div>
+
                 </div>
+
+
             </div>
            <div class="col-md-12 text-center" v-if="questionOptions.showDescription">
                {{ getDescription }}
@@ -71,11 +104,21 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-12">
-                <bar
-                        :chart-data="chartData"
-                        :labelFontColor="this.$parent.options.labelFontColor"
-                        :height="500"
-                        :width="1052"></bar>
+                <div  v-show="getChartType() === 'bar'">
+                    <bar
+                            :chart-data="chartData"
+                            :labelFontColor="this.$parent.options.labelFontColor"
+                            :height="500"
+                            :width="1052"></bar>
+                </div>
+
+                <div v-show="getChartType() === 'pie' && !isPieChartDisabled">
+                    <pie
+                            :chart-data="chartDataPie"
+                            :labelFontColor="this.$parent.options.labelFontColor"
+                            :height="500"
+                            :width="1052"></pie>
+                </div>
             </div>
         </div>
     </div>
@@ -83,16 +126,19 @@
 
 <script>
     import Bar from './charts/bar.js';
+    import Pie from './charts/pie.js';
 
     export default {
         name: "question",
         props: ['data'],
-        components: { Bar },
+        components: { Bar, Pie },
         data() {
             return {
                 chartData: null,
+                chartDataPie: null,
                 questionOptions: {
-                    showDescription: true
+                    showDescription: true,
+                    chartType: 'bar'
                 }
             }
         },
@@ -100,19 +146,31 @@
             this.renderChart();
         },
         methods: {
+            getButtonClassForChartType(type) {
+                if(type === 'pie'){
+                    if(this.isPieChartDisabled) {
+                        return 'btn-outline-primary disabled';
+                    }
+                }
+
+                return this.getChartType() === type ? 'btn-primary' : 'btn-outline-primary';
+            },
+            setChartType(type) {
+                this.questionOptions.chartType = type;
+            },
+            getChartType() {
+                return this.questionOptions.chartType;
+            },
             renderChart() {
                 this.chartData =  {
                     labels: this.chartLabels,
                     datasets: [this.chartDataSets]
                 };
-            },
-            getRandomColor() {
-                let letters = '0123456789ABCDEF';
-                let color = '#';
-                for (let i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                }
-                return color;
+
+                this.chartDataPie =  {
+                    labels: this.chartLabels,
+                    datasets: [this.chartDataSetsForPieChart]
+                };
             },
             formatLabel(str, maxwidth){
                 str = this.decodeHTML(str);
@@ -161,6 +219,9 @@
             }
         },
         computed: {
+            isPieChartDisabled() {
+                return this.answers.length > 8;
+            },
             hasDescription() {
                 return this.data.description !== null;
             },
@@ -221,6 +282,26 @@
                 return {
                     label: "Stimmen",
                     backgroundColor: this.options.barColor,
+                    data: results
+                };
+            },
+            chartDataSetsForPieChart() {
+                let results = this.answers.map(answer => {
+                    return this.decodeHTML(answer[1].result.total);
+                });
+
+                return {
+                    label: "Stimmen",
+                    backgroundColor: [
+                        '#ee4d2e',
+                        '#1db992',
+                        '#bfbc06',
+                        '#008fff',
+                        '#ff0082',
+                        '#c52b2f',
+                        '#addc8d',
+                        '#10366f'
+                    ],
                     data: results
                 };
             }

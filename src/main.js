@@ -6,6 +6,23 @@ import './scss/app.scss';
 import Vue from 'vue'
 import App from './App.vue'
 
+/*
+    ========================== FONT AWESOME ==========================
+ */
+// CORE
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+// Icons
+import { faChartBar, faChartPie } from '@fortawesome/free-solid-svg-icons'
+library.add(faChartBar, faChartPie);
+
+
+Vue.component('fa-icon', FontAwesomeIcon);
+/*
+    ========================== FONT AWESOME END ==========================
+ */
+
 Vue.config.productionTip = false;
 
 Vue.mixin({
