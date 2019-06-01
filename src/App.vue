@@ -31,7 +31,7 @@
               <div class="row">
                   <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
                   <div class="col-md-6 text-right">
-                      v1.9 &nsbp;
+                      v1.9.1 &nbsp;
                       <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
                           <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
                       </a>
