@@ -26,7 +26,7 @@
           </div>
       </modal>
 
-      <div class="text-white bg-dark p-2">
+      <div class="text-white bg-dark p-2 shadow rounded">
           <div class="container-fluid">
               <div class="row">
                   <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
@@ -42,7 +42,7 @@
               <div class="container">
                   <div class="row mt-3">
                       <div class="col-md-12 text-center">
-                          <button class="btn btn-secondary" @click="reset">Andere Umfrage auswerten</button>
+                          <button class="btn btn-secondary" @click="reset">Andere Umfrage auswerten</button> &nbsp;
                           <button class="btn btn-secondary" @click="downloadScreenshot">Screenshot herunterladen</button>
                       </div>
                   </div>
@@ -96,11 +96,20 @@
       <div class="container">
           <div class="row mt-4" v-if="!pollDataLoaded">
               <div class="col-md-12 text-center">
-                  <h1>Pr0p0ll Viewer</h1>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <img src="./assets/logo.png" alt="pr0p0ll-Viewer Logo" class="img-fluid">
+                          <h1>Pr0p0ll Viewer</h1>
+                      </div>
+                  </div>
 
-                  <button class="btn btn-secondary" @click="showTutorial = !showTutorial">
-                      Erklärungen / Turorial {{ showTutorial ? 'ausblenden' : 'einblenden' }}
-                  </button>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <button class="btn btn-secondary" @click="showTutorial = !showTutorial">
+                              Erklärungen / Turorial {{ showTutorial ? 'ausblenden' : 'einblenden' }}
+                          </button>
+                      </div>
+                  </div>
 
                   <div class="row mt-4" v-if="showTutorial">
                       <div class="col-md-8 offset-md-2 text-center instructions">
