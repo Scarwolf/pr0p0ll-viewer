@@ -42,8 +42,15 @@
               <div class="container">
                   <div class="row mt-3">
                       <div class="col-md-12 text-center">
-                          <button class="btn btn-secondary" @click="reset">Andere Umfrage auswerten</button> &nbsp;
-                          <button class="btn btn-secondary" @click="downloadScreenshot">Screenshot herunterladen</button>
+                          <button class="btn btn-secondary" @click="downloadScreenshot">
+                              <fa-icon icon="camera"></fa-icon>
+                              Screenshot herunterladen
+                          </button>
+                          &nbsp;
+                          <button class="btn btn-secondary" @click="reset">
+                              <fa-icon icon="undo"></fa-icon>
+                              Andere Umfrage auswerten
+                          </button>
                       </div>
                   </div>
 

@@ -14,8 +14,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Icons
-import { faChartBar, faChartPie } from '@fortawesome/free-solid-svg-icons'
-library.add(faChartBar, faChartPie);
+import { faChartBar, faChartPie, faCamera, faUndo } from '@fortawesome/free-solid-svg-icons'
+library.add(faChartBar, faChartPie, faCamera, faUndo);
 
 
 Vue.component('fa-icon', FontAwesomeIcon);
