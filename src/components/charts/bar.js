@@ -6,7 +6,7 @@ import labels from 'chartjs-plugin-labels';
 export default {
     extends: Bar,
     mixins: [reactiveProp],
-    props: ['chartdata', 'labelFontColor'],
+    props: ['chartdata', 'labelFontColor', 'hiddenAnswers'],
     data() {
         return {
             options: {
@@ -43,5 +43,5 @@ export default {
     },
     mounted () {
         this.renderChart(this.chartdata, this.options)
-    }
+    },
 }

@@ -11,9 +11,8 @@
             </div>
         </div>
         <div class="row mt-3" data-html2canvas-ignore>
-            <div class="col-md-12 mb-4">
-                <div class="row question-settings">
-
+            <div class="col-md-12 mb-4 question-settings">
+                <div class="row">
                     <div class="col-md-6">
                         <h5>Einstellungen</h5>
                         <div class="form-check" v-if="hasDescription">
@@ -47,9 +46,19 @@
                             Kuchendiagramm nur verfügbar bei maximal 8 Antwortmöglichkeiten.
                         </span>
                     </div>
-
                 </div>
 
+                <div class="row mt-2">
+                    <div class="col-md-12 text-center">
+                        <h5>Antwortmöglichkeiten anzeigen/ausblenden</h5>
+                        <div class="btn-group">
+                            <button class="btn btn-sm"
+                                    :class="getHideAnswerButtonClass(answer)"
+                                    v-for="answer in answers"
+                            @click="toggleShowAnswer(answer)">{{ answer[1].title }}</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
            <div class="col-md-12 text-center" v-if="questionOptions.showDescription">
@@ -139,13 +148,36 @@
                 questionOptions: {
                     showDescription: true,
                     chartType: 'bar'
-                }
+                },
+                hiddenAnswers: []
             }
         },
         mounted() {
             this.renderChart();
         },
         methods: {
+            toggleShowAnswer(answer) {
+                let found = this.hiddenAnswers.indexOf(answer);
+                // Not in array
+                if(found === -1) {
+                    this.hiddenAnswers.push(answer);
+                } else {
+                    this.hiddenAnswers = this.hiddenAnswers.filter(a => a !== answer);
+                }
+
+                this.$nextTick(function() {
+                    this.renderChart();
+                });
+            },
+            isAnswerHidden(answer) {
+                  return this.hiddenAnswers.indexOf(answer) !== -1;
+            },
+            getHideAnswerButtonClass(answer) {
+                if(this.isAnswerHidden(answer))
+                    return 'btn-dark';
+
+                return 'btn-primary';
+            },
             getButtonClassForChartType(type) {
                 if(type === 'pie'){
                     if(this.isPieChartDisabled) {
@@ -270,12 +302,19 @@
             },
             chartLabels() {
                 let vm = this;
-                return this.answers.map(answer => {
+                return this.answers.filter(answer => {
+                    if(!vm.isAnswerHidden(answer))
+                        return answer;
+                }).map(answer => {
                     return vm.formatLabel(this.decodeHTML(answer[1].title), 15);
                 });
             },
             chartDataSets() {
-                let results = this.answers.map(answer => {
+                let vm = this;
+                let results = this.answers.filter(answer => {
+                    if(!vm.isAnswerHidden(answer))
+                        return answer;
+                }).map(answer => {
                     return this.decodeHTML(answer[1].result.total);
                 });
 
@@ -286,7 +325,11 @@
                 };
             },
             chartDataSetsForPieChart() {
-                let results = this.answers.map(answer => {
+                let vm = this;
+                let results = this.answers.filter(answer => {
+                    if(!vm.isAnswerHidden(answer))
+                        return answer;
+                }).map(answer => {
                     return this.decodeHTML(answer[1].result.total);
                 });
 
