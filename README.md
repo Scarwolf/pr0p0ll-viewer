@@ -1,4 +1,4 @@
-![pr0p0ll Logo](https://raw.githubusercontent.com/Scarwolf/pr0p0ll-viewer/master/src/assets/logo.png)
+![pr0p0ll-Viewer Logo](https://raw.githubusercontent.com/Scarwolf/pr0p0ll-viewer/master/src/assets/logo.png)
 
 # pr0p0ll-viewer
 
