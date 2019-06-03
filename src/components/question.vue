@@ -195,12 +195,12 @@
             },
             renderChart() {
                 this.chartData =  {
-                    labels: this.chartLabels,
+                    labels: this.chartLabels(),
                     datasets: [this.chartDataSets]
                 };
 
                 this.chartDataPie =  {
-                    labels: this.chartLabels,
+                    labels: this.chartLabels('pie'),
                     datasets: [this.chartDataSetsForPieChart]
                 };
             },
@@ -248,7 +248,19 @@
                 });
 
                 return sections;
-            }
+            },
+            chartLabels(chartType = 'bar') {
+                let vm = this;
+                return this.answers.filter(answer => {
+                    if(!vm.isAnswerHidden(answer))
+                        return answer;
+                }).map(answer => {
+                    if(chartType !== 'bar')
+                        return this.decodeHTML(answer[1].title);
+
+                    return vm.formatLabel(this.decodeHTML(answer[1].title), 15);
+                });
+            },
         },
         computed: {
             isPieChartDisabled() {
@@ -299,15 +311,6 @@
                     delete obj[item];
                 });
                 return Object.keys(obj).map(v => [v, obj[v]]);
-            },
-            chartLabels() {
-                let vm = this;
-                return this.answers.filter(answer => {
-                    if(!vm.isAnswerHidden(answer))
-                        return answer;
-                }).map(answer => {
-                    return vm.formatLabel(this.decodeHTML(answer[1].title), 15);
-                });
             },
             chartDataSets() {
                 let vm = this;
