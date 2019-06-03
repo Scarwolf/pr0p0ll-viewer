@@ -61,9 +61,11 @@
                 </div>
 
             </div>
-           <div class="col-md-12 text-center" v-if="questionOptions.showDescription">
-               {{ getDescription }}
-           </div>
+        </div>
+        <div class="row" v-if="questionOptions.showDescription">
+            <div class="col-md-12 text-center">
+                {{ getDescription }}
+            </div>
         </div>
         <div class="row mt-3" v-show="options.details">
             <div class="col-md-12">
