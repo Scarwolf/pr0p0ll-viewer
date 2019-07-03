@@ -26,12 +26,19 @@
           </div>
       </modal>
 
+      <div class="text-white bg-primary">
+          <div class="container text-center">
+              <strong>UPDATE:</strong>&nbsp;
+              <span>Ab sofort sollten die Screenshots nicht mehr breiter als 1052 Pixel sein. Endlich richtiges Grau!</span>
+          </div>
+      </div>
+
       <div class="text-white bg-dark p-2 shadow rounded">
-          <div class="container-fluid">
+          <div class="container">
               <div class="row">
                   <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
                   <div class="col-md-6 text-right">
-                      v1.9.2 &nbsp;
+                      v1.9.3 &nbsp;
                       <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
                           <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
                       </a>
@@ -40,60 +47,101 @@
           </div>
           <div v-if="pollDataLoaded">
               <div class="container">
-                  <div class="row mt-3">
-                      <div class="col-md-12 text-center">
-                          <button class="btn btn-secondary" @click="downloadScreenshot">
-                              <fa-icon icon="camera"></fa-icon>
-                              Screenshot herunterladen
-                          </button>
-                          &nbsp;
-                          <button class="btn btn-secondary" @click="reset">
-                              <fa-icon icon="undo"></fa-icon>
-                              Andere Umfrage auswerten
-                          </button>
-                      </div>
-                  </div>
 
                   <div class="row mt-3">
-                      <div class="col-md-12 text-center">
-                          <strong>Einstellungen:</strong>
+                      <div class="col-md-12">
+                          <div class="card bg-settings text-white h-100">
+                              <div class="card-body">
+                                  <h5 class="card-title">
+                                      Einstellungen
+                                  </h5>
 
-                          <div class="form-check" v-if="pollData.info.description !== null">
-                              <input class="form-check-input" type="checkbox" id="options-poll-description" v-model="options.showPollDesc">
-                              <label class="form-check-label" for="options-poll-description">
-                                  Beschreibung der Umfrage anzeigen?
-                              </label>
-                          </div>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-check" v-if="pollData.info.description !== null">
+                                              <input class="form-check-input" type="checkbox" id="options-poll-description" v-model="options.showPollDesc">
+                                              <label class="form-check-label" for="options-poll-description">
+                                                  Beschreibung der Umfrage anzeigen?
+                                              </label>
+                                          </div>
 
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="options-detail" v-model="options.details">
-                              <label class="form-check-label" for="options-detail">
-                                  Antwort-Details anzeigen
-                              </label>
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" id="options-detail" v-model="options.details">
+                                              <label class="form-check-label" for="options-detail">
+                                                  Antwort-Details anzeigen
+                                              </label>
+                                          </div>
+                                      </div>
+
+                                      <div class="col-md-6 text-right">
+                                          <button class="btn btn-dark" @click="downloadScreenshot">
+                                              <fa-icon icon="camera"></fa-icon>
+                                              Screenshot herunterladen
+                                          </button>
+                                          &nbsp;
+                                          <button class="btn btn-dark" @click="reset">
+                                              <fa-icon icon="undo"></fa-icon>
+                                              Andere Umfrage auswerten
+                                          </button>
+                                      </div>
+                                  </div>
+                              </div>
                           </div>
                       </div>
                   </div>
                   <div class="row mt-3 text-center pb-2">
                       <div class="col-md-3">
-                          <strong>Farbe für Label</strong> <br>
-                          <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" /><br>
-                          <span class="badge badge-light mouseHover" @click="options.labelFontColor = '#fff'">Standard</span>
+                          <div class="card bg-settings text-white h-100">
+                              <div class="card-body">
+                                  <h5 class="card-title">
+                                      Farbe für Label
+                                  </h5>
+                                  <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" /><br>
+                              </div>
+                              <div class="card-footer">
+                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.labelFontColor = '#fff'">Auf Standard setzen</button>
+                              </div>
+                          </div>
                       </div>
                       <div class="col-md-3">
-                          <strong>Balkenfarbe</strong><br>
-                          <span class="text-muted">Nur Balkendiagramm</span><br>
-                          <ColorPicker :color="options.barColor" v-model="options.barColor" /><br>
-                          <span class="badge badge-light mouseHover" @click="options.barColor = '#f87979'">Standard</span>
+                          <div class="card bg-settings text-white h-100">
+                              <div class="card-body">
+                                  <h5 class="card-title">
+                                      Balkenfarbe
+                                  </h5>
+                                  <ColorPicker :color="options.barColor" v-model="options.barColor" /><br>
+                                  <span class="text-muted">Nur Balkendiagramm</span>
+                              </div>
+                              <div class="card-footer">
+                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.barColor = '#f87979'">Auf Standard setzen</button>
+                              </div>
+                          </div>
                       </div>
                       <div class="col-md-3">
-                          <strong>Hintergrundfarbe</strong><br>
-                          <ColorPicker :color="options.bgColor" v-model="options.bgColor" /><br>
-                          <span class="badge badge-light mouseHover" @click="options.bgColor = '#161618'">Standard</span>
+                          <div class="card bg-settings text-white h-100">
+                              <div class="card-body">
+                                  <h5 class="card-title">
+                                      Hintergrundfarbe
+                                  </h5>
+                                  <ColorPicker :color="options.bgColor" v-model="options.bgColor" /><br>
+                              </div>
+                              <div class="card-footer">
+                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.bgColor = '#161618'">Auf Standard setzen</button>
+                              </div>
+                          </div>
                       </div>
                       <div class="col-md-3">
-                          <strong>Titelfarbe</strong><br>
-                          <ColorPicker :color="options.titleColor" v-model="options.titleColor" /><br>
-                          <span class="badge badge-light mouseHover" @click="options.titleColor = '#ee4d2e'">Standard</span>
+                          <div class="card bg-settings text-white h-100">
+                              <div class="card-body">
+                                  <h5 class="card-title">
+                                      Titelfarbe
+                                  </h5>
+                                  <ColorPicker :color="options.titleColor" v-model="options.titleColor" /><br>
+                              </div>
+                              <div class="card-footer">
+                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.titleColor = '#ee4d2e'">Auf Standard setzen</button>
+                              </div>
+                          </div>
                       </div>
                   </div>
 
@@ -101,8 +149,8 @@
           </div>
       </div>
 
-      <div class="container">
-          <div class="row mt-4" v-if="!pollDataLoaded">
+      <div class="container" v-if="!pollDataLoaded">
+          <div class="row mt-4" >
               <div class="col-md-12 text-center">
                   <div class="row">
                       <div class="col-md-12">
@@ -144,14 +192,14 @@
                   </div>
               </div>
           </div>
+      </div>
 
-          <div v-else>
-              <div class="row mt-4">
-                  <div class="col-md-12" id="screenshotContainer" style="width: 1052px; margin-left: auto; margin-right: auto;" :style="{ backgroundColor: options.bgColor}" v-if="rendered">
-                      <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
-                      <hr>
-                      <question :data="question" v-for="question in questions" :key="question.id"></question>
-                  </div>
+      <div class="container widthLimit" v-else>
+          <div class="row mt-4">
+              <div class="col-md-12" id="screenshotContainer" style="width: 1052px; margin-left: auto; margin-right: auto;" :style="{ backgroundColor: options.bgColor}" v-if="rendered">
+                  <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
+                  <hr>
+                  <question :data="question" v-for="question in questions" :key="question.id"></question>
               </div>
           </div>
       </div>

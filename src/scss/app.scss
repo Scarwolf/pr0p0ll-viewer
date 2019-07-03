@@ -1,6 +1,9 @@
 @import "custom";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+.widthLimit {
+  max-width: 1052px !important;
+}
 
 h1, h2, h3 {
   color: $primary;
@@ -56,4 +59,8 @@ body, html {
     -moz-border-radius: 8px;
     border-radius: 8px;
   }
+}
+
+.bg-settings {
+  background-color: #40474e;
 }

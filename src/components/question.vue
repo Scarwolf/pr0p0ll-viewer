@@ -11,55 +11,58 @@
             </div>
         </div>
         <div class="row mt-3" data-html2canvas-ignore>
-            <div class="col-md-12 mb-4 question-settings">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Einstellungen</h5>
-                        <div class="form-check" v-if="hasDescription">
-                            <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
-                            <label class="form-check-label" :for="'options-detail-' + data.id">
-                                Beschreibung dieser Frage anzeigen?
-                            </label>
-                        </div>
-                        <i v-else>Keine besonderen Einstellungen verfügbar.</i>
-                    </div>
+            <div class="col-md-12 mb-4">
+                <div class="card bg-settings text-white">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="card-title">Einstellungen</h5>
+                                <div class="form-check" v-if="hasDescription">
+                                    <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showDescription">
+                                    <label class="form-check-label" :for="'options-detail-' + data.id">
+                                        Beschreibung dieser Frage anzeigen?
+                                    </label>
+                                </div>
+                                <i v-else>Keine besonderen Einstellungen verfügbar.</i>
+                            </div>
 
-                    <div class="col-md-6 text-right">
-                        <h5>Diagramm-Typ</h5>
-                        <div class="btn-group">
-                            <button class="btn btn-sm"
-                                    :disabled="isPieChartDisabled"
-                                    :class="getButtonClassForChartType('pie')"
-                                    @click="setChartType('pie')"
-                                    title="Kuchendiagramm">
-                                <fa-icon icon="chart-pie"></fa-icon>
-                            </button>
-                            <button class="btn btn-sm"
-                                    :class="getButtonClassForChartType('bar')"
-                                    @click="setChartType('bar')"
-                                    title="Balkendiagramm">
-                                <fa-icon icon="chart-bar"></fa-icon>
-                            </button>
-                        </div>
-                        <span v-if="isPieChartDisabled" class="text-muted">
+                            <div class="col-md-6 text-right">
+                                <h5 class="card-title">Diagramm-Typ</h5>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm"
+                                            :disabled="isPieChartDisabled"
+                                            :class="getButtonClassForChartType('pie')"
+                                            @click="setChartType('pie')"
+                                            title="Kuchendiagramm">
+                                        <fa-icon icon="chart-pie"></fa-icon>
+                                    </button>
+                                    <button class="btn btn-sm"
+                                            :class="getButtonClassForChartType('bar')"
+                                            @click="setChartType('bar')"
+                                            title="Balkendiagramm">
+                                        <fa-icon icon="chart-bar"></fa-icon>
+                                    </button>
+                                </div>
+                                <span v-if="isPieChartDisabled" class="text-muted">
                             <br>
                             Kuchendiagramm nur verfügbar bei maximal 8 Antwortmöglichkeiten.
                         </span>
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="row mt-2">
-                    <div class="col-md-12 text-center">
-                        <h5>Antwortmöglichkeiten anzeigen/ausblenden</h5>
-                        <div class="btn-group" style="display:inline !important;">
-                            <button class="btn btn-sm"
-                                    :class="getHideAnswerButtonClass(answer)"
-                                    v-for="answer in answers"
-                            @click="toggleShowAnswer(answer)">{{ answer[1].title }}</button>
+                        <div class="row mt-2">
+                            <div class="col-md-12 text-center">
+                                <h5>Antwortmöglichkeiten anzeigen/ausblenden</h5>
+                                <button class="btn btn-sm mr-1 mt-1"
+                                        :class="getHideAnswerButtonClass(answer)"
+                                        v-for="answer in answers"
+                                        @click="toggleShowAnswer(answer)">
+                                    {{ answer[1].title }}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="row" v-if="questionOptions.showDescription">
