@@ -33,6 +33,14 @@
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21"
   },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": [
+      "build"
+    ],
+    "commit": "Deploy to GH-Pages",
+    "noprompt": false
+  },
   "eslintConfig": {
     "root": true,
     "env": {

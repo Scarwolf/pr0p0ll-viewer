@@ -51,7 +51,7 @@
                 <div class="row mt-2">
                     <div class="col-md-12 text-center">
                         <h5>Antwortmöglichkeiten anzeigen/ausblenden</h5>
-                        <div class="btn-group">
+                        <div class="btn-group" style="display:inline !important;">
                             <button class="btn btn-sm"
                                     :class="getHideAnswerButtonClass(answer)"
                                     v-for="answer in answers"
