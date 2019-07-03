@@ -40,6 +40,11 @@ Vue.mixin({
   }
 });
 
+/*
+  Color
+ */
+import "vue-swatches/dist/vue-swatches.min.css"
+
 import { Modal, VoerroModal } from '@voerro/vue-modal';
 
 Vue.component('modal', Modal);

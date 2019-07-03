@@ -19,7 +19,8 @@
     "html2canvas": "^1.0.0-alpha.12",
     "vue": "^2.6.6",
     "vue-chartjs": "^3.4.0",
-    "vue-color": "^2.7.0"
+    "vue-color": "^2.7.0",
+    "vue-swatches": "^1.0.3"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",

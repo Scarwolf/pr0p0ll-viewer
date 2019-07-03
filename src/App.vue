@@ -96,7 +96,7 @@
                                   <h5 class="card-title">
                                       Farbe für Label
                                   </h5>
-                                  <ColorPicker :color="options.labelFontColor" v-model="options.labelFontColor" /><br>
+                                  <swatches v-model="options.labelFontColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
                               </div>
                               <div class="card-footer">
                                   <button class="btn btn-sm btn-dark mouseHover" @click="options.labelFontColor = '#fff'">Auf Standard setzen</button>
@@ -109,7 +109,7 @@
                                   <h5 class="card-title">
                                       Balkenfarbe
                                   </h5>
-                                  <ColorPicker :color="options.barColor" v-model="options.barColor" /><br>
+                                  <swatches v-model="options.barColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
                                   <span class="text-muted">Nur Balkendiagramm</span>
                               </div>
                               <div class="card-footer">
@@ -123,7 +123,7 @@
                                   <h5 class="card-title">
                                       Hintergrundfarbe
                                   </h5>
-                                  <ColorPicker :color="options.bgColor" v-model="options.bgColor" /><br>
+                                  <swatches v-model="options.bgColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
                               </div>
                               <div class="card-footer">
                                   <button class="btn btn-sm btn-dark mouseHover" @click="options.bgColor = '#161618'">Auf Standard setzen</button>
@@ -136,7 +136,7 @@
                                   <h5 class="card-title">
                                       Titelfarbe
                                   </h5>
-                                  <ColorPicker :color="options.titleColor" v-model="options.titleColor" /><br>
+                                  <swatches v-model="options.titleColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
                               </div>
                               <div class="card-footer">
                                   <button class="btn btn-sm btn-dark mouseHover" @click="options.titleColor = '#ee4d2e'">Auf Standard setzen</button>
@@ -212,11 +212,12 @@
     import html2canvas from 'html2canvas';
     import ColorPicker from './components/external/ColorPicker';
     import axios from 'axios';
+    import Swatches from 'vue-swatches'
 
     export default {
         name: 'app',
         components: {
-            pollInfo, question, ColorPicker
+            pollInfo, question, ColorPicker, Swatches
         },
         data() {
             return {
