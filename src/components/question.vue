@@ -154,13 +154,18 @@
                     showDescription: true,
                     chartType: 'bar'
                 },
-                hiddenAnswers: []
+                hiddenAnswers: [],
             }
         },
         mounted() {
             this.renderChart();
         },
         methods: {
+            /**
+             * Toggles Answers. Either disables or enables.
+             *
+             * @returns void
+             */
             toggleShowAnswer(answer) {
                 let found = this.hiddenAnswers.indexOf(answer);
                 // Not in array
@@ -174,15 +179,33 @@
                     this.renderChart();
                 });
             },
+
+            /**
+             * Determines if the given answer is Hidden.
+             *
+             * @returns {boolean}
+             */
             isAnswerHidden(answer) {
                   return this.hiddenAnswers.indexOf(answer) !== -1;
             },
+
+            /**
+             * Returns the class of the toggle button for the given answer.
+             *
+             * @returns string
+             */
             getHideAnswerButtonClass(answer) {
                 if(this.isAnswerHidden(answer))
                     return 'btn-dark';
 
                 return 'btn-primary';
             },
+
+            /**
+             * Returns the class of the chart type buttons for the given type.
+             *
+             * @returns string
+             */
             getButtonClassForChartType(type) {
                 if(type === 'pie'){
                     if(this.isPieChartDisabled) {
@@ -192,12 +215,30 @@
 
                 return this.getChartType() === type ? 'btn-primary' : 'btn-outline-primary';
             },
+
+            /**
+             * Sets the chart type for the current question.
+             *
+             * @returns void
+             */
             setChartType(type) {
                 this.questionOptions.chartType = type;
             },
+
+            /**
+             * Returns the current chart type.
+             *
+             * @returns string
+             */
             getChartType() {
                 return this.questionOptions.chartType;
             },
+
+            /**
+             *  Renders the chart.
+             *
+             *  @returns void
+             */
             renderChart() {
                 this.chartData =  {
                     labels: this.chartLabels(),
@@ -209,51 +250,12 @@
                     datasets: [this.chartDataSetsForPieChart]
                 };
             },
-            formatLabel(str, maxwidth){
-                str = this.decodeHTML(str);
-                var sections = [];
-                var words = str.split(" ");
-                var temp = "";
 
-                words.forEach(function(item, index){
-                    if(temp.length > 0)
-                    {
-                        var concat = temp + ' ' + item;
-
-                        if(concat.length > maxwidth){
-                            sections.push(temp);
-                            temp = "";
-                        }
-                        else{
-                            if(index == (words.length-1))
-                            {
-                                sections.push(concat);
-                                return;
-                            }
-                            else{
-                                temp = concat;
-                                return;
-                            }
-                        }
-                    }
-
-                    if(index == (words.length-1))
-                    {
-                        sections.push(item);
-                        return;
-                    }
-
-                    if(item.length < maxwidth) {
-                        temp = item;
-                    }
-                    else {
-                        sections.push(item);
-                    }
-
-                });
-
-                return sections;
-            },
+            /**
+             *  Returns the chart labels used to render.
+             *
+             *  @returns array
+             */
             chartLabels(chartType = 'bar') {
                 let vm = this;
                 return this.answers.filter(answer => {
@@ -263,7 +265,7 @@
                     if(chartType !== 'bar')
                         return this.decodeHTML(answer[1].title);
 
-                    return vm.formatLabel(this.decodeHTML(answer[1].title), 15);
+                    return this.formatLabel(this.decodeHTML(answer[1].title), 15);
                 });
             },
         },

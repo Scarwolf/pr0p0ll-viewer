@@ -26,21 +26,20 @@
           </div>
       </modal>
 
-      <!--
-      <div class="text-white bg-primary">
+
+      <div class="text-white bg-info">
           <div class="container text-center">
-              <strong>UPDATE:</strong>&nbsp;
-              <span>Ab sofort sollten die Screenshots nicht mehr breiter als 1052 Pixel sein. Endlich richtiges Grau!</span>
+              <strong>NEU:</strong>&nbsp;
+              <span>&#8226; Deaktivieren von Antwortmöglichkeiten berechnet nun die Anzahl der Stimmen neu.</span>
           </div>
       </div>
-      -->
 
       <div class="text-white bg-dark p-2 shadow rounded">
           <div class="container">
               <div class="row">
                   <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
                   <div class="col-md-6 text-right">
-                      v1.9.3 &nbsp;
+                      v1.9.4 &nbsp;
                       <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
                           <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
                       </a>

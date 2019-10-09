@@ -36,7 +36,59 @@ Vue.mixin({
       let txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
-    }
+    },
+
+    /**
+     * Formats the label so that it splits into new lines after maxwidth is reached.
+     * @param str
+     * @param maxwidth
+     * @returns {[]}
+     */
+    formatLabel(str, maxwidth){
+      str = this.decodeHTML(str);
+      var sections = [];
+      var words = str.split(" ");
+      var temp = "";
+
+      words.forEach(function(item, index){
+        if(temp.length > 0)
+        {
+          var concat = temp + ' ' + item;
+
+          if(concat.length > maxwidth){
+            sections.push(temp);
+            temp = "";
+          }
+          else{
+            if(index == (words.length-1))
+            {
+              sections.push(concat);
+              return;
+            }
+            else{
+              temp = concat;
+              return;
+            }
+          }
+        }
+
+        if(index == (words.length-1))
+        {
+          sections.push(item);
+          return;
+        }
+
+        if(item.length < maxwidth) {
+          temp = item;
+        }
+        else {
+          sections.push(item);
+        }
+
+      });
+
+      return sections;
+    },
   }
 });
 
