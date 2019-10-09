@@ -5,8 +5,8 @@
             <div class="col-md-12 text-center">
                 <h6>
                     Zu dieser Frage wurden {{ totalParticipants }} Stimmen abgegeben.
-                    <span v-if="data.answertype === 'single'">(Eine Stimme pro User)</span>
-                    <span v-if="data.answertype === 'multi'">(Mehrere Stimmen pro User)</span>
+                    <span v-if="isSingleChoice">(Eine Stimme pro User)</span>
+                    <span v-if="isMultipleChoice">(Mehrere Stimmen pro User)</span>
                 </h6>
             </div>
         </div>
@@ -45,7 +45,7 @@
                                 </div>
                                 <span v-if="isPieChartDisabled" class="text-muted">
                             <br>
-                            Kuchendiagramm nur verfügbar bei maximal 8 Antwortmöglichkeiten.
+                            Kuchendiagramm nur verfügbar bei Single-Choice Fragen mit maximal 8 Antwortmöglichkeiten.
                         </span>
                             </div>
                         </div>
@@ -268,8 +268,14 @@
             },
         },
         computed: {
+            isMultipleChoice() {
+                return this.data.answertype === 'multi';
+            },
+            isSingleChoice() {
+                return this.data.answertype === 'single';
+            },
             isPieChartDisabled() {
-                return this.answers.length > 8;
+                return this.answers.length > 8 || this.isMultipleChoice;
             },
             hasDescription() {
                 return this.data.description !== null;

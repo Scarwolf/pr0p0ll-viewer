@@ -26,12 +26,14 @@
           </div>
       </modal>
 
+      <!--
       <div class="text-white bg-primary">
           <div class="container text-center">
               <strong>UPDATE:</strong>&nbsp;
               <span>Ab sofort sollten die Screenshots nicht mehr breiter als 1052 Pixel sein. Endlich richtiges Grau!</span>
           </div>
       </div>
+      -->
 
       <div class="text-white bg-dark p-2 shadow rounded">
           <div class="container">
