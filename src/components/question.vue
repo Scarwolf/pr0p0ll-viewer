@@ -268,53 +268,137 @@
             },
         },
         computed: {
+            /**
+             * Returns whether the question is a multiple choice question.
+             *
+             * @returns {boolean}
+             */
             isMultipleChoice() {
                 return this.data.answertype === 'multi';
             },
+
+            /**
+             * Returns whether the question is a single choice question.
+             *
+             * @returns {boolean}
+             */
             isSingleChoice() {
                 return this.data.answertype === 'single';
             },
+
+            /**
+             * Determines whether the Pie Chart should be selectable.
+             *
+             * @returns {boolean}
+             */
             isPieChartDisabled() {
                 return this.answers.length > 8 || this.isMultipleChoice;
             },
+
+            /**
+             * Determines whether the question has a description.
+             *
+             * @returns {boolean}
+             */
             hasDescription() {
                 return this.data.description !== null;
             },
+
+            /**
+             * Returns the description
+             *
+             * @returns {string|null}
+             */
             getDescription() {
                 return this.data.description;
             },
+
+            /**
+             *  Returns the Option Object.
+             *
+             *  @returns {object}
+             */
             options() {
                 return this.$parent.options;
             },
+
+            /**
+             * Returns the amount of participants to substract based on hidden Answers.
+             *
+             * @returns {number}
+             */
+            participantsToSubstract() {
+                return this.hiddenAnswers.map(answer => answer[1].result.total).reduce((total, value) => total + value, 0);
+            },
+
+            /**
+             * Returns the total number of participants for the question.
+             *
+             * @returns {number}
+             */
             totalParticipants() {
-                return this.answers.map(answer => {
+                let participants = this.answers.map(answer => {
                     return answer[1].result.total;
                 }).reduce((a,b) => a + b, 0);
+
+                return participants - this.participantsToSubstract;
             },
+
+            /**
+             * Returns only Answers that are enabled.
+             *
+             * @returns {*}
+             */
+            enabledAnswers() {
+                return this.answers.filter(i => !this.hiddenAnswers.includes(i));
+            },
+
+            /**
+             *  Returns the amount of votes, grouped by Age groups.
+             *
+             *  @returns {number}
+             */
             participantsByAge() {
-                return this.answers.map(answer => {
+                return this.enabledAnswers.map(answer => {
                     return answer[1].result.age;
                 }).reduce((acc, next) => {
                     Object.entries(next).forEach(([k, v]) => acc[k] = v + (acc[k] || 0));
                     return acc;
                 }, {});
             },
+
+            /**
+             *  Returns the amount of votes, grouped by countries.
+             *
+             *  @returns {number}
+             */
             participantsByCountry() {
-                return this.answers.map(answer => {
+                return this.enabledAnswers.map(answer => {
                     return answer[1].result.country;
                 }).reduce((acc, next) => {
                     Object.entries(next).forEach(([k, v]) => acc[k] = v + (acc[k] || 0));
                     return acc;
                 }, {});
             },
+
+            /**
+             *  Returns the amount of votes, grouped by genders.
+             *
+             *  @returns {number}
+             */
             participantsByGender() {
-                return this.answers.map(answer => {
+                return this.enabledAnswers.map(answer => {
                     return answer[1].result.gender;
                 }).reduce((acc, next) => {
                     Object.entries(next).forEach(([k, v]) => acc[k] = v + (acc[k] || 0));
                     return acc;
                 }, {});
             },
+            /**
+             * Returns all answers.
+             *
+             * @returns {[string, *][]}
+             */
             answers() {
                 let obj = JSON.parse(JSON.stringify(this.data));
                 let remove = ['answertype', 'description', 'id', 'index', 'title'];
@@ -323,6 +407,12 @@
                 });
                 return Object.keys(obj).map(v => [v, obj[v]]);
             },
+
+            /**
+             * Returns the dataset for the default bar chart.
+             *
+             * @returns {{backgroundColor: (string), data: *, label: string}}
+             */
             chartDataSets() {
                 let vm = this;
                 let results = this.answers.filter(answer => {
@@ -338,6 +428,12 @@
                     data: results
                 };
             },
+
+            /**
+             * Returns the Dataset for the Pie chart.
+             *
+             * @returns {{backgroundColor: *[], data: *, label: string}}
+             */
             chartDataSetsForPieChart() {
                 let vm = this;
                 let results = this.answers.filter(answer => {
