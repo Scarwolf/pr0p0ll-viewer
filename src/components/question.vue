@@ -10,7 +10,7 @@
                 </h6>
             </div>
         </div>
-        <div class="row mt-3" data-html2canvas-ignore>
+        <div class="row mt-3" v-if="shouldRenderSettings">  <!-- data-html2canvas-ignore="true" -->
             <div class="col-md-12 mb-4">
                 <div class="card bg-settings text-white">
                     <div class="card-body">
@@ -270,6 +270,10 @@
             },
         },
         computed: {
+            shouldRenderSettings() {
+              return !this.$parent.isScreenshotDrawing;
+            },
+
             /**
              * Returns whether the question is a multiple choice question.
              *

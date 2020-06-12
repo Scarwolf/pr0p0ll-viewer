@@ -9,146 +9,141 @@
 
           <div slot="body">
              <div class="text-center">
-                 <p>
-                     Rechtsklicke auf das Bild -> Speichern unter. Das Bild ist optimiert um auf Pr0 hochgeladen zu werden.
-                 </p>
 
-                 <p>
-                     <strong>WICHTIG:</strong>
-                 </p>
-                 <p>
-                     Damit die Hintergrundfarbe sich nach dem Uploaden auf das pr0 nicht ändert, überprüft bitte ob das Bild hier maximal 1052px breit ist und skaliert die Breite notfalls manuell.<br>
-                     Ich arbeite daran dass das Bild diese Breite nicht überschreitet.
-                 </p>
+                 <div class="alert alert-info">
+                     Rechtsklicke auf das Bild -> Speichern unter. Das Bild ist optimiert um auf Pr0 hochgeladen zu werden.<br>
+                     <strong>Bitte überprüft vor dem Hochladen eure Ausgabe auf Fehler. Im Falle eines Fehlers in eurem Ausgabe-Bild hafte ich nicht für die verlorenen Blussis :(</strong>
+                 </div>
 
                  <img :src="screenShotToDownload" alt="Canvas">
              </div>
           </div>
       </modal>
 
-
-      <div class="text-white bg-info">
-          <div class="container text-center">
-              <strong>NEU:</strong>&nbsp;
-              <span>&#8226; Deaktivieren von Antwortmöglichkeiten berechnet nun die Anzahl der Stimmen neu.</span>
-          </div>
-      </div>
-
-      <div class="text-white bg-dark p-2 shadow rounded">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
-                  <div class="col-md-6 text-right">
-                      v1.9.4 &nbsp;
-                      <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
-                          <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
-                      </a>
-                  </div>
+      <section id="header">
+          <div class="text-white bg-secondary">
+              <div class="container text-center">
+                  <span class="badge badge-danger">FIX</span>
+                  <span>&nbsp; [13.06.2020] Das Problem mit dem leeren Platz am Ende eines Bildes sollte nun behoben sein.</span>
               </div>
           </div>
-          <div v-if="pollDataLoaded">
+
+          <div class="text-white bg-dark p-2 shadow rounded">
               <div class="container">
+                  <div class="row">
+                      <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
+                      <div class="col-md-6 text-right">
+                          v1.9.5 &nbsp;
+                          <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
+                              <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div v-if="pollDataLoaded">
+                  <div class="container">
 
-                  <div class="row mt-3">
-                      <div class="col-md-12">
-                          <div class="card bg-settings text-white h-100">
-                              <div class="card-body">
-                                  <h5 class="card-title">
-                                      Einstellungen
-                                  </h5>
+                      <div class="row mt-3">
+                          <div class="col-md-12">
+                              <div class="card bg-settings text-white h-100">
+                                  <div class="card-body">
+                                      <h5 class="card-title">
+                                          Einstellungen
+                                      </h5>
 
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <div class="form-check" v-if="pollData.info.description !== null">
-                                              <input class="form-check-input" type="checkbox" id="options-poll-description" v-model="options.showPollDesc">
-                                              <label class="form-check-label" for="options-poll-description">
-                                                  Beschreibung der Umfrage anzeigen?
-                                              </label>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-check" v-if="pollData.info.description !== null">
+                                                  <input class="form-check-input" type="checkbox" id="options-poll-description" v-model="options.showPollDesc">
+                                                  <label class="form-check-label" for="options-poll-description">
+                                                      Beschreibung der Umfrage anzeigen?
+                                                  </label>
+                                              </div>
+
+                                              <div class="form-check">
+                                                  <input class="form-check-input" type="checkbox" id="options-detail" v-model="options.details">
+                                                  <label class="form-check-label" for="options-detail">
+                                                      Antwort-Details anzeigen
+                                                  </label>
+                                              </div>
                                           </div>
 
-                                          <div class="form-check">
-                                              <input class="form-check-input" type="checkbox" id="options-detail" v-model="options.details">
-                                              <label class="form-check-label" for="options-detail">
-                                                  Antwort-Details anzeigen
-                                              </label>
+                                          <div class="col-md-6 text-right">
+                                              <button class="btn btn-dark" @click="downloadScreenshot">
+                                                  <fa-icon icon="camera"></fa-icon>
+                                                  Screenshot herunterladen
+                                              </button>
+                                              &nbsp;
+                                              <button class="btn btn-dark" @click="reset">
+                                                  <fa-icon icon="undo"></fa-icon>
+                                                  Andere Umfrage auswerten
+                                              </button>
                                           </div>
-                                      </div>
-
-                                      <div class="col-md-6 text-right">
-                                          <button class="btn btn-dark" @click="downloadScreenshot">
-                                              <fa-icon icon="camera"></fa-icon>
-                                              Screenshot herunterladen
-                                          </button>
-                                          &nbsp;
-                                          <button class="btn btn-dark" @click="reset">
-                                              <fa-icon icon="undo"></fa-icon>
-                                              Andere Umfrage auswerten
-                                          </button>
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </div>
-                  </div>
-                  <div class="row mt-3 text-center pb-2">
-                      <div class="col-md-3">
-                          <div class="card bg-settings text-white h-100">
-                              <div class="card-body">
-                                  <h5 class="card-title">
-                                      Farbe für Label
-                                  </h5>
-                                  <swatches v-model="options.labelFontColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
+                      <div class="row mt-3 text-center pb-2">
+                          <div class="col-md-3">
+                              <div class="card bg-settings text-white h-100">
+                                  <div class="card-body">
+                                      <h5 class="card-title">
+                                          Farbe für Label
+                                      </h5>
+                                      <swatches v-model="options.labelFontColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
+                                  </div>
+                                  <div class="card-footer">
+                                      <button class="btn btn-sm btn-dark mouseHover" @click="options.labelFontColor = '#fff'">Auf Standard setzen</button>
+                                  </div>
                               </div>
-                              <div class="card-footer">
-                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.labelFontColor = '#fff'">Auf Standard setzen</button>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="card bg-settings text-white h-100">
+                                  <div class="card-body">
+                                      <h5 class="card-title">
+                                          Balkenfarbe
+                                      </h5>
+                                      <swatches v-model="options.barColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
+                                      <span class="text-muted">Nur Balkendiagramm</span>
+                                  </div>
+                                  <div class="card-footer">
+                                      <button class="btn btn-sm btn-dark mouseHover" @click="options.barColor = '#ee4d2e'">Auf Standard setzen</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="card bg-settings text-white h-100">
+                                  <div class="card-body">
+                                      <h5 class="card-title">
+                                          Hintergrundfarbe
+                                      </h5>
+                                      <swatches v-model="options.bgColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
+                                  </div>
+                                  <div class="card-footer">
+                                      <button class="btn btn-sm btn-dark mouseHover" @click="options.bgColor = '#161618'">Auf Standard setzen</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="card bg-settings text-white h-100">
+                                  <div class="card-body">
+                                      <h5 class="card-title">
+                                          Titelfarbe
+                                      </h5>
+                                      <swatches v-model="options.titleColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
+                                  </div>
+                                  <div class="card-footer">
+                                      <button class="btn btn-sm btn-dark mouseHover" @click="options.titleColor = '#ee4d2e'">Auf Standard setzen</button>
+                                  </div>
                               </div>
                           </div>
                       </div>
-                      <div class="col-md-3">
-                          <div class="card bg-settings text-white h-100">
-                              <div class="card-body">
-                                  <h5 class="card-title">
-                                      Balkenfarbe
-                                  </h5>
-                                  <swatches v-model="options.barColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
-                                  <span class="text-muted">Nur Balkendiagramm</span>
-                              </div>
-                              <div class="card-footer">
-                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.barColor = '#f87979'">Auf Standard setzen</button>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                          <div class="card bg-settings text-white h-100">
-                              <div class="card-body">
-                                  <h5 class="card-title">
-                                      Hintergrundfarbe
-                                  </h5>
-                                  <swatches v-model="options.bgColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
-                              </div>
-                              <div class="card-footer">
-                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.bgColor = '#161618'">Auf Standard setzen</button>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                          <div class="card bg-settings text-white h-100">
-                              <div class="card-body">
-                                  <h5 class="card-title">
-                                      Titelfarbe
-                                  </h5>
-                                  <swatches v-model="options.titleColor" show-fallback background-color="#343A40" :row-length="6"></swatches>
-                              </div>
-                              <div class="card-footer">
-                                  <button class="btn btn-sm btn-dark mouseHover" @click="options.titleColor = '#ee4d2e'">Auf Standard setzen</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
 
+                  </div>
               </div>
           </div>
-      </div>
+      </section>
 
       <div class="container" v-if="!pollDataLoaded">
           <div class="row mt-4" >
@@ -197,9 +192,8 @@
 
       <div class="container widthLimit" v-else>
           <div class="row mt-4">
-              <div class="col-md-12" id="screenshotContainer" style="width: 1052px; margin-left: auto; margin-right: auto;" :style="{ backgroundColor: options.bgColor}" v-if="rendered">
+              <div class="col-12" id="screenshotContainer" :style="{ backgroundColor: options.bgColor}" v-if="rendered">
                   <poll-info :data="pollData.info" v-if="pollData.info"></poll-info>
-                  <hr>
                   <question :data="question" v-for="question in questions" :key="question.id"></question>
               </div>
           </div>
@@ -211,18 +205,18 @@
     import pollInfo from './components/pollinfo';
     import question from './components/question';
     import html2canvas from 'html2canvas';
-    import ColorPicker from './components/external/ColorPicker';
     import axios from 'axios';
     import Swatches from 'vue-swatches'
 
     export default {
         name: 'app',
         components: {
-            pollInfo, question, ColorPicker, Swatches
+            pollInfo, question, Swatches
         },
         data() {
             return {
                 showTutorial: false,
+                isScreenshotDrawing: false,
 
                 pollData: {},
                 pollDataString: "",
@@ -244,12 +238,6 @@
                 let obj = JSON.parse(JSON.stringify(this.pollData));
                 delete obj.info;
                 return obj;
-            },
-            labelColorComputed() {
-                return this.options.labelFontColor;
-            },
-            barColorComputed() {
-                return this.options.barColor;
             },
             setTitleColor() {
                 return 'color: ' + this.options.titleColor + ';';
@@ -293,11 +281,21 @@
                 this.screenShotToDownload = '';
             },
             downloadScreenshot() {
-                html2canvas(document.querySelector("#screenshotContainer"), {backgroundColor: this.options.bgColor}).then(canvas => {
-                    this.screenShotToDownload = canvas.toDataURL('image/png');
-                    // eslint-disable-next-line
-                    VoerroModal.show('screenModal');
-                });
+                this.isScreenshotDrawing = true;
+                let vm = this;
+
+                this.$nextTick(() => {
+                    html2canvas(document.querySelector("#screenshotContainer"), {
+                        backgroundColor: this.options.bgColor,
+                        scrollX: 0,
+                        scrollY: 0,
+                    }).then(canvas => {
+                        vm.screenShotToDownload = canvas.toDataURL('image/png');
+                        vm.isScreenshotDrawing = false;
+                        // eslint-disable-next-line
+                        VoerroModal.show('screenModal');
+                    });
+                })
             },
             async checkPollData() {
                 if(this.pollDataString.length < 1 || !this.isValidJson(this.pollDataString))
