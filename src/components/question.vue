@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-5">
+    <div class="mt-5 apply-font">
         <h3 class="text-center" :style="$parent.setTitleColor">Frage: {{ this.decodeHTML(data.title) }}</h3>
         <div class="row mt-3">
             <div class="col-md-12 text-center">

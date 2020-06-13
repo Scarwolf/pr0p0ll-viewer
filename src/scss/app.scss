@@ -73,3 +73,17 @@ body, html {
   overflow: -moz-hidden-unscrollable;
   overflow: hidden;
 }
+
+.font-picker {
+  .dropdown-button {
+    background: #383838 !important;
+
+    &:hover, &.expanded, &:focus {
+      background: #515050 !important;
+    }
+  }
+
+  ul {
+    background: #515050 !important;
+  }
+}

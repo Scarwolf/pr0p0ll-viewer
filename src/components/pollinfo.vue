@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center apply-font">
         <h1 :style="$parent.setTitleColor">pr0p0ll Umfragenauswertung</h1>
 
         <h2 :style="$parent.setTitleColor">

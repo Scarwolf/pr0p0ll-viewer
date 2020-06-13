@@ -24,7 +24,10 @@
           <div class="text-white bg-secondary">
               <div class="container text-center">
                   <span class="badge badge-danger">FIX</span>
-                  <span>&nbsp; [13.06.2020] Das Problem mit dem leeren Platz am Ende eines Bildes sollte nun behoben sein.</span>
+                  <span>&nbsp;Das Problem mit dem leeren Platz am Ende eines Bildes sollte nun behoben sein.</span>
+                  <br>
+                  <span class="badge badge-info">NEU</span>
+                  <span>&nbsp;Es kann nun eine Schriftart ausgewählt werden. Probierts doch mal aus!</span>
               </div>
           </div>
 
@@ -33,7 +36,7 @@
                   <div class="row">
                       <div class="col-md-6"><span>Fragen? Anregungen? Schreib mir: <a href="https://pr0gramm.com/user/PoTTii" target="_blank">@PoTTii</a></span></div>
                       <div class="col-md-6 text-right">
-                          v1.9.5 &nbsp;
+                          v1.10 &nbsp;
                           <a href="https://github.com/Scarwolf/pr0p0ll-viewer" target="_blank">
                               <img src="./assets/github/GitHub-Mark-Light-32px.png" alt="Repo auf GitHub">
                           </a>
@@ -66,6 +69,10 @@
                                                       Antwort-Details anzeigen
                                                   </label>
                                               </div>
+
+                                              <br>
+                                              <label>Schriftart: &nbsp;</label>
+                                              <font-picker :api-key="'AIzaSyDvuZYzEpWOWVuF1FqPIvFxRqhJBttcmdg'" :options="options" :active-font="activeFont" @change="updateFontPicker"></font-picker>
                                           </div>
 
                                           <div class="col-md-6 text-right">
@@ -84,6 +91,8 @@
                               </div>
                           </div>
                       </div>
+
+
                       <div class="row mt-3 text-center pb-2">
                           <div class="col-md-3">
                               <div class="card bg-settings text-white h-100">
@@ -207,16 +216,18 @@
     import html2canvas from 'html2canvas';
     import axios from 'axios';
     import Swatches from 'vue-swatches'
+    import FontPicker from 'font-picker-vue';
 
     export default {
         name: 'app',
         components: {
-            pollInfo, question, Swatches
+            pollInfo, question, Swatches, FontPicker
         },
         data() {
             return {
                 showTutorial: false,
                 isScreenshotDrawing: false,
+                activeFont: 'Open Sans',
 
                 pollData: {},
                 pollDataString: "",
@@ -252,6 +263,10 @@
             }
         },
         methods: {
+            updateFontPicker(e) {
+                this.activeFont = e.family;
+            },
+
             loadDemo() {
                 let vm = this;
 
