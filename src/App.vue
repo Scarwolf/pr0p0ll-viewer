@@ -250,6 +250,12 @@
                 delete obj.info;
                 return obj;
             },
+            labelColorComputed() {
+                return this.options.labelFontColor;
+            },
+            barColorComputed() {
+                return this.options.barColor;
+            },
             setTitleColor() {
                 return 'color: ' + this.options.titleColor + ';';
             }
