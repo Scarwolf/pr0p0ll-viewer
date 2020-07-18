@@ -23,7 +23,12 @@
                                         Beschreibung dieser Frage anzeigen?
                                     </label>
                                 </div>
-                                <i v-else>Keine besonderen Einstellungen verfügbar.</i>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showValuesAsPercentage">
+                                    <label class="form-check-label" :for="'options-percentage-' + data.id">
+                                        Werte in Prozent anzeigen
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="col-md-6 text-right">
@@ -45,7 +50,9 @@
                                 </div>
                                 <span v-if="isPieChartDisabled" class="text-muted">
                             <br>
-                            Kuchendiagramm nur verfügbar bei Single-Choice Fragen mit maximal 8 Antwortmöglichkeiten.
+                            <small class="text-muted">
+                                Kuchendiagramm nur verfügbar bei Single-Choice Fragen mit maximal 8 Antwortmöglichkeiten.
+                            </small>
                         </span>
                             </div>
                         </div>
@@ -53,11 +60,12 @@
                         <div class="row mt-2">
                             <div class="col-md-12 text-center">
                                 <h5>Antwortmöglichkeiten anzeigen/ausblenden</h5>
+                                <small class="text-muted">Klicke auf eine Antwort zum anzeigen/ausblenden.</small><br>
                                 <button class="btn btn-sm mr-1 mt-1"
                                         :class="getHideAnswerButtonClass(answer)"
                                         v-for="answer in answers"
                                         @click="toggleShowAnswer(answer)">
-                                    {{ answer[1].title }}
+                                    <small>{{ answer[1].title }}</small>
                                 </button>
                             </div>
                         </div>
@@ -122,6 +130,7 @@
                     <bar
                             :chart-data="chartData"
                             :labelFontColor="this.$parent.options.labelFontColor"
+                            :values-as-percentage="questionOptions.showValuesAsPercentage"
                             :height="500"
                             :width="1052"></bar>
                 </div>
@@ -130,6 +139,7 @@
                     <pie
                             :chart-data="chartDataPie"
                             :labelFontColor="this.$parent.options.labelFontColor"
+                            :values-as-percentage="questionOptions.showValuesAsPercentage"
                             :height="500"
                             :width="1052"></pie>
                 </div>
@@ -152,7 +162,8 @@
                 chartDataPie: null,
                 questionOptions: {
                     showDescription: true,
-                    chartType: 'bar'
+                    chartType: 'bar',
+                    showValuesAsPercentage: false,
                 },
                 hiddenAnswers: [],
             }

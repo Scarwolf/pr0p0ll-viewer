@@ -6,13 +6,31 @@ import labels from 'chartjs-plugin-labels';
 export default {
     extends: Bar,
     mixins: [reactiveProp],
-    props: ['chartdata', 'labelFontColor', 'hiddenAnswers'],
+    props: ['chartdata', 'labelFontColor', 'valuesAsPercentage'],
+    watch: {
+        valuesAsPercentage(val) {
+            this.options.plugins.labels.render = 'value';
+            if(val) {
+                this.options.plugins.labels.render = function (args) {
+                    let max = 0;
+                    max = args.dataset.data.map((num) => {
+                        return parseInt(num);
+                    }).reduce((pv, cv) => pv + cv, 0);
+                    return (args.value * 100 / max).toFixed(2) + '%';
+                }
+            }
+
+            this.renderChart(this.chartData, this.options);
+        }
+    },
     data() {
         return {
             options: {
                 plugins: {
                     labels: {
                         render: 'value',
+                        showActualPercentages: true,
+                        precision: 2,
                         fontColor: this.labelFontColor,
                     }
                 },
@@ -43,5 +61,5 @@ export default {
     },
     mounted () {
         this.renderChart(this.chartdata, this.options)
-    },
+    }
 }
