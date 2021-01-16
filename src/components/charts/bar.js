@@ -16,7 +16,7 @@ export default {
                     max = args.dataset.data.map((num) => {
                         return parseInt(num);
                     }).reduce((pv, cv) => pv + cv, 0);
-                    return (args.value * 100 / max).toFixed(2) + '%';
+                    return (args.value * 100 / max).toFixed(1) + '% (' + args.value + ')';
                 }
             }
 

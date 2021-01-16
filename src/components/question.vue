@@ -26,7 +26,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" :id="'options-detail-' + data.id" v-model="questionOptions.showValuesAsPercentage">
                                     <label class="form-check-label" :for="'options-percentage-' + data.id">
-                                        Werte in Prozent anzeigen
+                                        Prozentwerte anzeigen
                                     </label>
                                 </div>
                             </div>

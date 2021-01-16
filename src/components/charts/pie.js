@@ -59,7 +59,7 @@ export default {
                                         let max = chart.config.data.datasets[arc._datasetIndex].data.map((num) => {
                                             return parseInt(num);
                                         }).reduce((pv, cv) => pv + cv, 0);
-                                        value = (parseInt(value) * 100 / max).toFixed(2) + '%';
+                                        value = (parseInt(value) * 100 / max).toFixed(2) + '% -> ' + value + ' Stimmen';
                                     }
 
                                     return {
