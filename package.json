@@ -14,7 +14,7 @@
     "@voerro/vue-modal": "^1.4.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartjs-plugin-labels": "^1.1.0",
     "font-picker-vue": "^1.0.3",
     "html2canvas": "^1.0.0-rc.5",
